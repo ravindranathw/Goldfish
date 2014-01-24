@@ -20,6 +20,27 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{7EB1
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Goldfish.FilePoster", "Modules\Goldfish.FilePoster\Goldfish.FilePoster.csproj", "{CC2547CC-E0C6-4D3C-B747-B0349BEB2E87}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".docs", ".docs", "{EC396DD9-F568-4A68-987D-E4BA17FE1B19}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api", "Api", "{24B573C7-AAFB-474E-A150-673E1ABAB3B9}"
+	ProjectSection(SolutionItems) = preProject
+		Docs\Api\Readme.md = Docs\Api\Readme.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Hooks", "Hooks", "{6CEA8D27-22A1-40FF-AE37-528C0073E1C2}"
+	ProjectSection(SolutionItems) = preProject
+		Docs\Hooks\App.md = Docs\Hooks\App.md
+		Docs\Hooks\Blog.md = Docs\Hooks\Blog.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Config", "Config", "{B7CFD524-CDE8-43AB-B08F-BFA4A0FED962}"
+	ProjectSection(SolutionItems) = preProject
+		Docs\Config\App.md = Docs\Config\App.md
+		Docs\Config\Blog.md = Docs\Config\Blog.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{BB695FF1-9CB2-4EE1-AE34-C931D1DBC5CE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -46,5 +67,9 @@ Global
 		{0759226A-DD1B-451C-9D94-33AF626F4279} = {8F0CE610-83FE-4953-A147-1DAB7B8D0FC2}
 		{BFA00318-9F5A-4855-BBC9-58DBA066314E} = {8F0CE610-83FE-4953-A147-1DAB7B8D0FC2}
 		{CC2547CC-E0C6-4D3C-B747-B0349BEB2E87} = {7EB19B6B-C598-4A7D-8DB1-65DA9F07D985}
+		{24B573C7-AAFB-474E-A150-673E1ABAB3B9} = {EC396DD9-F568-4A68-987D-E4BA17FE1B19}
+		{6CEA8D27-22A1-40FF-AE37-528C0073E1C2} = {EC396DD9-F568-4A68-987D-E4BA17FE1B19}
+		{B7CFD524-CDE8-43AB-B08F-BFA4A0FED962} = {EC396DD9-F568-4A68-987D-E4BA17FE1B19}
+		{BB695FF1-9CB2-4EE1-AE34-C931D1DBC5CE} = {EC396DD9-F568-4A68-987D-E4BA17FE1B19}
 	EndGlobalSection
 EndGlobal
