@@ -202,7 +202,7 @@
     <Compile Include="Web\Mvc\AtomResult.cs" />
     <Compile Include="Web\Mvc\RssResult.cs" />
     <Compile Include="Web\Mvc\SyndicationResult.cs" />
-    <Compile Include="Web\Startup.cs" />
+    <Compile Include="Startup.cs" />
     <Compile Include="Web\Mvc\ControllerFactory.cs" />
     <Compile Include="Web\Mvc\ViewEngine.cs" />
     <Compile Include="Helpers\UI.cs" />

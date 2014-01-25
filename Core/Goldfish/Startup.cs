@@ -1,10 +1,12 @@
 ﻿using System;
+using System.IO;
+using System.Web;
 using System.Web.Mvc;
 using WebActivatorEx;
 
-[assembly: PostApplicationStartMethod(typeof(Goldfish.Web.Startup), "Init")]
+[assembly: PostApplicationStartMethod(typeof(Goldfish.Startup), "Init")]
 
-namespace Goldfish.Web
+namespace Goldfish
 {
 	/// <summary>
 	/// Starts the application automatically.
@@ -15,8 +17,17 @@ namespace Goldfish.Web
 		/// Starts the web module.
 		/// </summary>
 		public static void Init() {
+			var context = HttpContext.Current;
+			var path = context.Server.MapPath("~/App_Data/Blog");
+
 			// Initialize the application object
 			App.Init();
+
+			// Ensure blog directory
+			if (!Directory.Exists(path)) {
+				Directory.CreateDirectory(path);
+			}
+
 
 			// Register Blog module hooks
 			Hooks.App.UI.GetMeta += (str) => {
@@ -24,10 +35,10 @@ namespace Goldfish.Web
 			};
 
 			// Set the controler factory
-			ControllerBuilder.Current.SetControllerFactory(new Mvc.ControllerFactory());
+			ControllerBuilder.Current.SetControllerFactory(new Web.Mvc.ControllerFactory());
 
 			// Register the view engine
-			Mvc.ViewEngine.Register();
+			Web.Mvc.ViewEngine.Register();
 		}
 	}
 }
