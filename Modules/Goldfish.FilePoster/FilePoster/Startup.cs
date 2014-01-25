@@ -52,11 +52,5 @@ namespace Goldfish.FilePoster
 			watcher.Dispose();
 		}
 		#endregion
-
-		#region Private methods
-		private static string GetName(string filename) { 
-			return filename.Substring(0, filename.LastIndexOf('.'));
-		}
-		#endregion
 	}
 }

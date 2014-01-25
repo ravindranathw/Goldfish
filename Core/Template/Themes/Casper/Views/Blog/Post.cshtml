@@ -1,0 +1,54 @@
+﻿@model Goldfish.Models.Post
+@{
+	Page.Title = Model.Title;		   
+}
+
+<main class="content" role="main">
+	<article class="post">
+		<header class="post-header">
+			<a id="blog-logo" href="~/">@Blog.Title</a>
+		</header>
+
+		<span class="post-meta">
+			<time datetime="@Model.GetPublished()">@Model.GetPublished()</time>
+			@if (Model.HasCategories()) {
+				<text>on</text> @Model.GetCategories()
+			}
+			/ <a href="#comments">@Model.Comments.Count comments</a>
+		</span>
+
+		<h1 class="post-title">@Model.Title</h1>
+
+		<section class="post-content">
+			@Model.Html
+		</section>
+
+		<footer class="post-footer">
+			<section class="share">
+				<h4>Share this post</h4>
+				<a class="icon-twitter" href="http://twitter.com/share?text=@Model.Title&url=@Model.GetAbsoluteUrl()"
+				   onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+					<span class="hidden">Twitter</span>
+				</a>
+				<a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=@Model.GetAbsoluteUrl()"
+				   onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+					<span class="hidden">Facebook</span>
+				</a>
+				<a class="icon-google-plus" href="https://plus.google.com/share?url=@Model.GetAbsoluteUrl()"
+				   onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+					<span class="hidden">Google+</span>
+				</a>
+			</section>
+
+			@if (Model.Author != null) {
+				<section class="author">
+					<h4>@Model.Author.Name</h4>
+					@if (!String.IsNullOrEmpty(Model.Author.Bio)) {
+						<p>@Model.Author.Bio</p>
+					}
+				</section>
+			}
+		</footer>
+		@Html.Partial("Partial/Comments")
+	</article>
+</main>

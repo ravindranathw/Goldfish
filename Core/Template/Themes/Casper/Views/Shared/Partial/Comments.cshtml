@@ -1,0 +1,37 @@
+﻿@model Goldfish.Models.Post
+
+@if (Blog.CommentsEnabled) {
+<section id="comments" class="post-comments">
+	<h3>Comments</h3>
+	@foreach (var comment in Model.Comments) {
+	if (comment.IsApproved || comment.SessionID == Session.SessionID) {
+		<article @(!comment.IsApproved ? "class=pending" : "")>
+			<header>
+				<h4><img class="gravatar" src="@UI.GravatarUrl(comment.Email, 40)" />@comment.Author</h4>
+				<span class="datetime">@comment.Created.Value.ToLongDateString() @comment.Created.Value.ToShortTimeString()</span>
+			</header>
+			<p>
+				@if (!comment.IsApproved) {
+					<span>pending</span>
+				}
+				@comment.Html
+			</p>
+		</article>
+	}
+}
+	@{ Html.BeginForm("AddComment", "Blog"); }
+	@Html.AntiForgeryToken()
+	<input type="hidden" name="PostId" value="@Model.Id" />
+	<label for="Author">Name*</label>
+	<input id="Author" name="Author" type="text" />
+	<label for="Email">Email*</label>
+	<input id="Email" name="Email" type="text" />
+	<label for="WebSite">Website</label>
+	<input id="WebSite" name="WebSite" type="text" />
+	<label for="Body">Message*</label>
+	<textarea id="Body" name="Body" rows="10"></textarea>
+	<button type="submit">Submit comment</button>
+	@{ Html.EndForm(); }
+</section>
+} else if (Blog.DisqusEnabled) {
+}

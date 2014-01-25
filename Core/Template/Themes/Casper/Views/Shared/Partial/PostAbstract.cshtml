@@ -1,0 +1,19 @@
+﻿@model Goldfish.Models.Post
+@{
+    Layout = null;
+}
+<article class="post">
+	<header class="post-header">
+		<span class="post-meta">
+			<time datetime="@Model.GetPublished()">@Model.GetPublished()</time>
+			@if (Model.HasCategories()) {
+				<text>on</text> @Model.GetCategories()
+			}
+			/ @Model.Comments.Count comments
+		</span>
+		<h2 class="post-title"><a href="@Model.GetPermalink()">@Model.Title</a></h2>
+	</header>
+	<section class="post-excerpt">
+		<p>@Model.GetExcerpt()&hellip;</p>
+	</section>
+</article>
