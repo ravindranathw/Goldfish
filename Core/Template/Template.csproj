@@ -116,6 +116,7 @@
     <Content Include="Themes\Casper\Assets\Css\screen.css" />
     <Content Include="Themes\Casper\Assets\Fonts\icons.dev.svg" />
     <Content Include="Themes\Casper\Assets\Fonts\icons.svg" />
+    <Content Include="Themes\Casper\LICENSE.txt" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -139,8 +140,8 @@
     <Content Include="Themes\Casper\Views\Blog\Archive.cshtml" />
     <Content Include="Themes\Casper\Views\Blog\Category.cshtml" />
     <Content Include="Themes\Casper\Views\Blog\Tag.cshtml" />
-    <Content Include="Themes\Casper\Views\Shared\Partial\PostAbstract.cshtml" />
-    <Content Include="Themes\Casper\Views\Shared\Partial\Comments.cshtml" />
+    <Content Include="Themes\Casper\Views\Blog\Partial\PostAbstract.cshtml" />
+    <Content Include="Themes\Casper\Views\Blog\Partial\Comments.cshtml" />
     <Content Include="Views\web.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
