@@ -39,5 +39,17 @@ namespace Goldfish.Feed.Controllers
 		public async Task<ActionResult> Atom() {
 			return new AtomResult((await Api.Posts.GetAsync()));
 		}
+
+		/// <summary>
+		/// Disposes the controller and all of its resources.
+		/// </summary>
+		/// <param name="disposing">If the controller should dispose managed objects</param>
+		protected override void Dispose(bool disposing) {
+			// Dispose the current api
+			Api.Dispose();
+
+			// Disposes the controller itself
+			base.Dispose(disposing);
+		}
 	}
 }
