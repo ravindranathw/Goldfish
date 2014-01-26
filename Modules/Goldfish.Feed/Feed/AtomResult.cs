@@ -2,19 +2,19 @@
 using System.Collections.Generic;
 using System.ServiceModel.Syndication;
 
-namespace Goldfish.Web.Mvc
+namespace Goldfish.Feed
 {
 	/// <summary>
-	/// Action result for RSS feeds.
+	/// Action result for atom feeds.
 	/// </summary>
-	public sealed class RssResult : SyndicationResult
+	public sealed class AtomResult : SyndicationResult
 	{
 		#region Properties
 		/// <summary>
 		/// Gets the content type of the current feed.
 		/// </summary>
 		protected override string ContentType {
-			get { return "application/rss+xml"; }
+			get { return "application/atom+xml"; }
 		}
 		#endregion
 
@@ -22,14 +22,14 @@ namespace Goldfish.Web.Mvc
 		/// Default constructor.
 		/// </summary>
 		/// <param name="posts">The current posts</param>
-		public RssResult(IEnumerable<Models.Post> posts) : base(posts) { }
+		public AtomResult(IEnumerable<Models.Post> posts) : base(posts) { }
 
 		/// <summary>
 		/// Gets the current formatter.
 		/// </summary>
 		/// <returns>The formatter</returns>
 		protected override SyndicationFeedFormatter GetFormatter(SyndicationFeed feed) {
-			return new Rss20FeedFormatter(feed);
+			return new Atom10FeedFormatter(feed);
 		}
 	}
 }

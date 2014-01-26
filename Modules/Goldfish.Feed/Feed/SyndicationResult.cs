@@ -6,7 +6,7 @@ using System.Text;
 using System.Web.Mvc;
 using System.Xml;
 
-namespace Goldfish.Web.Mvc
+namespace Goldfish.Feed
 {
 	/// <summary>
 	/// Base class for action results returning a syndication feed.

@@ -69,12 +69,6 @@ namespace Goldfish.Helpers
 					str.AppendLine("<meta property=\"og:description\" content=\"" + Config.Blog.MetaDescription + "\" />");
 			}
 
-			// Feeds
-			str.AppendLine("<link rel=\"alternate\" type=\"application/rss+xml\" title=\"" +
-				Config.Blog.Title + "\" href=\"" + Utils.AbsoluteUrl("~/feed/rss") + "/" + "\" />");
-			str.AppendLine("<link rel=\"alternate\" type=\"application/atom+xml\" title=\"" +
-				Config.Blog.Title + "\" href=\"" + Utils.AbsoluteUrl("~/feed/atom") + "/" + "\" />");
-
 			// Execute hook if it's attached
 			if (post != null && Hooks.Blog.UI.GetPostMeta != null)
 				Hooks.Blog.UI.GetPostMeta(str);
@@ -169,9 +163,7 @@ namespace Goldfish.Helpers
 		/// <param name="post">The current post</param>
 		/// <returns>The permalink</returns>
 		public static string GetPermalink(this Models.Post post) {
-			if (Hooks.Blog.UI.GetPostPermalink != null)
-				return Hooks.Blog.UI.GetPostPermalink(post);
-			return Utils.Url("~/" + post.Slug);
+			return Utils.Url("~/" + FormatPermalink(post));
 		}
 
 		/// <summary>
@@ -180,7 +172,7 @@ namespace Goldfish.Helpers
 		/// <param name="post">The current post</param>
 		/// <returns>The url</returns>
 		public static string GetAbsoluteUrl(this Models.Post post) {
-			return Utils.AbsoluteUrl("~/" + post.Slug);
+			return Utils.AbsoluteUrl("~/" + FormatPermalink(post));
 		}
 
 		/// <summary>
@@ -192,6 +184,20 @@ namespace Goldfish.Helpers
 			if (Hooks.Blog.UI.GetPostPublished != null)
 				return Hooks.Blog.UI.GetPostPublished(post);
 			return post.Published.Value.ToString("yy MMM dd");
+		}
+		#endregion
+
+		#region Private methods
+		/// <summary>
+		/// Formats the permalink for the given post.
+		/// </summary>
+		/// <param name="post">The post</param>
+		/// <returns>The formatted permalink</returns>
+		private static string FormatPermalink(Models.Post post) {
+			return post.Published.Value.Year + "/" +
+				post.Published.Value.Month.ToString("00") + "/" +
+				post.Published.Value.Day.ToString("00") + "/" +
+				post.Slug;
 		}
 		#endregion
 	}

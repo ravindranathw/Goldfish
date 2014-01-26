@@ -80,12 +80,6 @@ namespace Goldfish.Hooks
 			/// this hooks is implemented the default output is replaced.
 			/// </summary>
 			public static Delegates.OutputReturnDelegate<Models.Post> GetPostPublished;
-
-			/// <summary>
-			/// Called when the extension method GetPermalink is executed on the post model. If
-			/// this hooks is implemented the default output is replaced.
-			/// </summary>
-			public static Delegates.OutputReturnDelegate<Models.Post> GetPostPermalink;
 		}
 	}
 }

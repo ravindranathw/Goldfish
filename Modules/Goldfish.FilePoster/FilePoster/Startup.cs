@@ -8,7 +8,7 @@ using WebActivatorEx;
 namespace Goldfish.FilePoster
 {
 	/// <summary>
-	/// Starts the test module.
+	/// Starts the file poster module.
 	/// </summary>
 	public class Startup
 	{

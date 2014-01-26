@@ -155,6 +155,10 @@
     <Folder Include="Controllers\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Modules\Goldfish.Feed\Goldfish.Feed.csproj">
+      <Project>{98f0952e-f4af-489c-b5ee-f6f526a71443}</Project>
+      <Name>Goldfish.Feed</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Goldfish\Goldfish.csproj">
       <Project>{0759226a-dd1b-451c-9d94-33af626f4279}</Project>
       <Name>Goldfish</Name>

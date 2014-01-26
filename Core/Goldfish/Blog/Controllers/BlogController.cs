@@ -43,8 +43,8 @@ namespace Goldfish.Blog.Controllers
 		/// </summary>
 		/// <param name="slug">The unique slug</param>
 		/// <returns>The view result</returns>
-		[Route("~/{slug}")]
-		public async Task<ActionResult> Post(string slug) {
+		[Route("~/{year:int}/{month:int}/{day:int}/{slug}")]
+		public async Task<ActionResult> Post(int year, int month, int day, string slug) {
 			var model = await Api.Posts.GetBySlugAsync(slug);
 			Tools.Current = model;
 
@@ -111,24 +111,6 @@ namespace Goldfish.Blog.Controllers
 		[Route("~/media/{path}")]
 		public ActionResult Media(string path) {
 			return null;
-		}
-
-		/// <summary>
-		/// Gets the rss feed for the specified resource.
-		/// </summary>
-		/// <returns>The view result</returns>
-		[Route("~/feed/rss")]
-		public async Task<ActionResult> Rss() {
-			return new Goldfish.Web.Mvc.RssResult((await Api.Posts.GetAsync()));
-		}
-
-		/// <summary>
-		/// Gets the atom feed for the specified resource.
-		/// </summary>
-		/// <returns>The view result</returns>
-		[Route("~/feed/atom")]
-		public async Task<ActionResult> Atom() {
-			return new Goldfish.Web.Mvc.AtomResult((await Api.Posts.GetAsync()));
 		}
 
 		/// <summary>
