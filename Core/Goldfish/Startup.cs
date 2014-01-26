@@ -28,7 +28,6 @@ namespace Goldfish
 				Directory.CreateDirectory(path);
 			}
 
-
 			// Register Blog module hooks
 			Hooks.App.UI.GetMeta += (str) => {
 				Helpers.Blog.Meta(str);

@@ -19,8 +19,8 @@ namespace Template
 		}
 
         protected void Application_Start() {
-            AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+            AreaRegistration.RegisterAllAreas();
 
 			Goldfish.Hooks.App.Db.Seed = db => {
 				// Add some data
