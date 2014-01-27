@@ -7,19 +7,19 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{80B2E6DF-B5B5-45CA-9BB5-C76A696AFFC3}</ProjectGuid>
+    <ProjectGuid>{637DB039-CDE8-4A02-AECD-88C894AFBE22}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Template</RootNamespace>
-    <AssemblyName>Template</AssemblyName>
+    <RootNamespace>Goldfish</RootNamespace>
+    <AssemblyName>Goldfish.Manager</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
-    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -40,35 +40,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AutoMapper, Version=3.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\AutoMapper.3.1.1\lib\net40\AutoMapper.dll</HintPath>
-    </Reference>
-    <Reference Include="AutoMapper.Net4, Version=3.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\AutoMapper.3.1.1\lib\net40\AutoMapper.Net4.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\EntityFramework.6.0.2\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\EntityFramework.6.0.2\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.AspNet.Identity.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\Microsoft.AspNet.Identity.Core.1.0.0\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\Microsoft.AspNet.Identity.EntityFramework.1.0.0\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
     </Reference>
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -111,38 +88,20 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Global.asax" />
-    <Content Include="Themes\Casper\Assets\Css\normalize.css" />
-    <Content Include="Themes\Casper\Assets\Css\screen.css" />
-    <Content Include="Themes\Casper\Assets\Fonts\icons.dev.svg" />
-    <Content Include="Themes\Casper\Assets\Fonts\icons.svg" />
-    <Content Include="Themes\Casper\LICENSE.txt" />
-    <Content Include="Web.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Global.asax.cs">
-      <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
-    <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="packages.config" />
-    <Content Include="Themes\Casper\Views\Shared\_Layout.cshtml" />
-    <Content Include="Themes\Casper\Assets\Fonts\icons.eot" />
-    <Content Include="Themes\Casper\Assets\Fonts\icons.ttf" />
-    <Content Include="Themes\Casper\Assets\Fonts\icons.woff" />
-    <Content Include="Themes\Casper\Views\web.config" />
-    <Content Include="Themes\Casper\Views\_ViewStart.cshtml" />
-    <Content Include="Themes\Casper\Views\Blog\Start.cshtml" />
-    <Content Include="Themes\Casper\Views\Blog\Post.cshtml" />
-    <Content Include="Themes\Casper\Views\Blog\NotFound.cshtml" />
-    <Content Include="Themes\Casper\Views\Blog\Archive.cshtml" />
-    <Content Include="Themes\Casper\Views\Blog\Category.cshtml" />
-    <Content Include="Themes\Casper\Views\Blog\Tag.cshtml" />
-    <Content Include="Themes\Casper\Views\Blog\Partial\PostAbstract.cshtml" />
-    <Content Include="Themes\Casper\Views\Blog\Partial\Comments.cshtml" />
-    <Content Include="Views\web.config" />
+    <Content Include="Areas\Manager\Views\web.config" />
+    <Content Include="Areas\Manager\Views\Dashboard\Start.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Start.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\Manager\Views\Account\Login.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Login.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\Manager\Views\_ViewStart.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>_ViewStart.generated.cs</LastGenOutput>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -151,19 +110,49 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
+    <Content Include="Areas\Manager\Views\Shared\_Layout.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>_Layout.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Modules\Goldfish.Feed\Goldfish.Feed.csproj">
-      <Project>{98f0952e-f4af-489c-b5ee-f6f526a71443}</Project>
-      <Name>Goldfish.Feed</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Modules\Goldfish.Manager\Goldfish.Manager.csproj">
-      <Project>{637db039-cde8-4a02-aecd-88c894afbe22}</Project>
-      <Name>Goldfish.Manager</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Goldfish\Goldfish.csproj">
+    <Compile Include="Areas\Manager\Controllers\AccountController.cs" />
+    <Compile Include="Areas\Manager\Controllers\AssetsController.cs" />
+    <Compile Include="Areas\Manager\Controllers\DashboardController.cs" />
+    <Compile Include="Areas\Manager\ManagerAreaRegistration.cs" />
+    <Compile Include="Areas\Manager\Models\Account\LoginModel.cs" />
+    <Compile Include="Areas\Manager\Views\Account\Login.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Login.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Manager\Views\Dashboard\Start.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Start.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Manager\Views\Shared\_Layout.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_Layout.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Manager\Views\_ViewStart.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_ViewStart.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\AssetsManager.cs" />
+    <Compile Include="Manager\ManagerModule.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Areas\Manager\Assets\Css\Less\" />
+    <Folder Include="Areas\Manager\Assets\Fonts\" />
+    <Folder Include="Areas\Manager\Assets\Scripts\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\Goldfish\Goldfish.csproj">
       <Project>{0759226a-dd1b-451c-9d94-33af626f4279}</Project>
       <Name>Goldfish</Name>
     </ProjectReference>
@@ -181,9 +170,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>49642</DevelopmentServerPort>
+          <DevelopmentServerPort>50760</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:49642/</IISUrl>
+          <IISUrl>http://localhost:50760/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
