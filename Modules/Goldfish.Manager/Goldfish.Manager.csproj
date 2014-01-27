@@ -88,6 +88,9 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Manager\Assets\Css\Less\Colors.css">
+      <DependentUpon>Colors.less</DependentUpon>
+    </Content>
     <Content Include="Areas\Manager\Assets\Css\Less\Fonts.css">
       <DependentUpon>Fonts.less</DependentUpon>
     </Content>
@@ -159,6 +162,11 @@
     <EmbeddedResource Include="Areas\Manager\Assets\Fonts\Montserrat\montserrat-regular-webfont.ttf" />
     <EmbeddedResource Include="Areas\Manager\Assets\Fonts\Montserrat\montserrat-regular-webfont.woff" />
     <Content Include="Areas\Manager\Assets\Css\Less\Fonts.less" />
+    <Content Include="Areas\Manager\Views\Manager\Settings.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Settings.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\Manager\Assets\Css\Less\Colors.less" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -177,6 +185,7 @@
     <Compile Include="Areas\Manager\Controllers\AccountController.cs" />
     <Compile Include="Areas\Manager\Controllers\AssetsController.cs" />
     <Compile Include="Areas\Manager\Controllers\DashboardController.cs" />
+    <Compile Include="Areas\Manager\Controllers\ManagerController.cs" />
     <Compile Include="Areas\Manager\ManagerAreaRegistration.cs" />
     <Compile Include="Areas\Manager\Models\Account\LoginModel.cs" />
     <Compile Include="Areas\Manager\Views\Account\Login.generated.cs">
@@ -188,6 +197,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Start.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Manager\Views\Manager\Settings.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Settings.cshtml</DependentUpon>
     </Compile>
     <Compile Include="Areas\Manager\Views\Shared\_Layout.generated.cs">
       <AutoGen>True</AutoGen>

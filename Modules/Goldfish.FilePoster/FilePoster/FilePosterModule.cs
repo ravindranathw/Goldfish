@@ -2,19 +2,21 @@
 using System.ComponentModel.Composition;
 using System.IO;
 using System.Web;
+using Goldfish.Extend;
 
 namespace Goldfish.FilePoster
 {
 	/// <summary>
 	/// Starts the file poster module.
 	/// </summary>
-	[Export(typeof(Goldfish.Extend.IModule))]
-	public class FilePosterModule : Goldfish.Extend.IModule
+	[Module(Name="File poster", Config=typeof(Config.FilePoster))]
+	[Export(typeof(IModule))]
+	public class FilePosterModule : Module
 	{
 		/// <summary>
 		/// Initializes the file poster module.
 		/// </summary>
-		public void Init() {
+		public override void Init() {
 			var context = HttpContext.Current;
 			var path = context.Server.MapPath("~/App_Data/FilePoster");
 			

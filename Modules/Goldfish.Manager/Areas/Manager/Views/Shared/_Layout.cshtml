@@ -14,14 +14,12 @@
 			<li><a target="preview" href="@Href("~/")"><span class="icon-eye"></span>Preview</a></li>
 			<li><a href="#"><span class="icon-gauge"></span>Dashboard</a></li>
 			<li><a href="#"><span class="icon-newspaper"></span>Content</a></li>
-			<li><a href="#"><span class="icon-cog"></span>Settings</a></li>
+			<li><a href="@Url.Action("Settings", "Manager")"><span class="icon-cog"></span>Settings</a></li>
 			<li><a href="@Url.Action("Logout", "Account")"><span class="icon-logout"></span>Logout</a></li>
 		</ul>
 	</nav>
     <div id="main"> 
-		<div class="inner">
-		@RenderBody()
-		</div>
+	@RenderBody()
     </div>
 </body>
 </html>

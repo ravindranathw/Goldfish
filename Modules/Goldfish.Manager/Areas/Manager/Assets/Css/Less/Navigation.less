@@ -1,48 +1,111 @@
-﻿@import "Mixins.less";
+﻿@import "Colors.less";
+@import "Mixins.less";
 
 #navigation {
-	height: 100%;
+	background: @nav-bg-color;
+	color: #fff;
 	position: fixed;
+	width: 100%;
 	top: 0;
 	left: 0;
 
 	#main-navigation {
-		background: #181818;
-		color: #fff;
-		position: absolute;
+		width: 1024px;
 		margin: 0;
 		padding: 0;
-		width: 90px;
-		height: 100%;
-		top: 0;
-		left: 0;
+
+		li {
+			display: inline-block;
+			width: 80px;
+			list-style-type: none;
+			border-right: 1px solid @nav-border-color;
+
+			&:last-child {
+				float: right;
+				border-left: 1px solid @nav-border-color;
+			}
+		}
 
 		a {
-			color: #666;
+			color: @nav-text-dim-color;
 			display: block;
 			width: 100%;
 			font-size: 10px;
 			text-align: center;
 			text-decoration: none;
-			padding: 18px 0;
-			list-style-type: none;
-			border-bottom: 1px solid #282828;
-			.transition(0.2s);
+			padding: 14px 0;
+			width: 100%;
+			.transition(all, 0.2s);
 
 			span {
+				color: @nav-icon-dim-color;
 				display: block;
-				font-size: 24px;
-				margin-bottom: 10px;
+				font-size: 20px;
+				margin-bottom: 8px;
 			}
 
 			&:hover {
 				background: #1d1d1d;
-				color: #999;
-				.transition(0.2s);
+				color: @nav-text-active-color;
+				.transition(all, 0.2s);
 
 				span {
-					color: #fff;
-					.transition(0.2s);
+					color: @nav-icon-active-color;
+					.transition(all, 0.2s);
+				}
+			}
+		}
+	}
+}
+
+#sub-navigation {
+	width: 249px;
+	height: 100%;
+	border-right: 1px solid @main-border-color;
+
+	.inner {
+		padding-top: 70px;
+	}
+
+	h2 {
+		font-weight: normal;
+		font-size: 1.3em;
+	}
+
+	p {
+		font-size: 0.9em;
+		line-height: 1.6em;
+	}
+
+	ul {
+		padding: 10px 0;
+		margin: 0;
+		border-bottom: 1px solid @main-border-color;
+
+		li {
+			list-style-type: none;
+
+			a {
+				display: block;
+				padding: 8px 0;
+				color: @dim-text-color;
+				text-decoration: none;
+				.transition(color, 0.2s);
+
+				&:hover {
+					color: @main-text-color;
+					.transition(color, 0.2s);
+				}
+			}
+
+			&.active {
+				background: @bg-color;
+				width: 100%;
+				padding: 0 2em;
+				margin-left: -2em;
+
+				a {
+					color: @main-text-color;
 				}
 			}
 		}

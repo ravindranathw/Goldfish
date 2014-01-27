@@ -7,6 +7,10 @@ namespace Goldfish.Extend
 	/// </summary>
 	public interface IModule
 	{
+		string Name { get; }
+		bool HasConfig { get; }
+		Type ConfigType { get; }
+
 		/// <summary>
 		/// Initializes the module. This method should be used for
 		/// ensuring runtime resources and registering hooks.

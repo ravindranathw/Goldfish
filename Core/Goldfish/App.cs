@@ -50,7 +50,7 @@ namespace Goldfish
 		/// The currently imported modules.
 		/// </summary>
 		[ImportMany(typeof(Extend.IModule))]
-		internal IEnumerable<Lazy<Extend.IModule>> Modules { get; set; }
+		public IEnumerable<Lazy<Extend.IModule>> Modules { get; set; }
 		#endregion
 
 		/// <summary>

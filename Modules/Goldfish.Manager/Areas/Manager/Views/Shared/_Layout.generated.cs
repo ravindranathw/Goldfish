@@ -105,7 +105,15 @@ WriteLiteral(" class=\"icon-newspaper\"");
 
 WriteLiteral("></span>Content</a></li>\r\n\t\t\t<li><a");
 
-WriteLiteral(" href=\"#\"");
+WriteAttribute("href", Tuple.Create(" href=\"", 572), Tuple.Create("\"", 613)
+            
+            #line 17 "..\..\Areas\Manager\Views\Shared\_Layout.cshtml"
+, Tuple.Create(Tuple.Create("", 579), Tuple.Create<System.Object, System.Int32>(Url.Action("Settings", "Manager")
+            
+            #line default
+            #line hidden
+, 579), false)
+);
 
 WriteLiteral("><span");
 
@@ -113,14 +121,14 @@ WriteLiteral(" class=\"icon-cog\"");
 
 WriteLiteral("></span>Settings</a></li>\r\n\t\t\t<li><a");
 
-WriteAttribute("href", Tuple.Create(" href=\"", 640), Tuple.Create("\"", 679)
+WriteAttribute("href", Tuple.Create(" href=\"", 673), Tuple.Create("\"", 712)
             
             #line 18 "..\..\Areas\Manager\Views\Shared\_Layout.cshtml"
-, Tuple.Create(Tuple.Create("", 647), Tuple.Create<System.Object, System.Int32>(Url.Action("Logout", "Account")
+, Tuple.Create(Tuple.Create("", 680), Tuple.Create<System.Object, System.Int32>(Url.Action("Logout", "Account")
             
             #line default
             #line hidden
-, 647), false)
+, 680), false)
 );
 
 WriteLiteral("><span");
@@ -131,22 +139,18 @@ WriteLiteral("></span>Logout</a></li>\r\n\t\t</ul>\r\n\t</nav>\r\n    <div");
 
 WriteLiteral(" id=\"main\"");
 
-WriteLiteral("> \r\n\t\t<div");
+WriteLiteral("> \r\n");
 
-WriteLiteral(" class=\"inner\"");
-
-WriteLiteral(">\r\n");
-
-WriteLiteral("\t\t");
+WriteLiteral("\t");
 
             
-            #line 23 "..\..\Areas\Manager\Views\Shared\_Layout.cshtml"
-   Write(RenderBody());
+            #line 22 "..\..\Areas\Manager\Views\Shared\_Layout.cshtml"
+Write(RenderBody());
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n\t\t</div>\r\n    </div>\r\n</body>\r\n</html>\r\n");
+WriteLiteral("\r\n    </div>\r\n</body>\r\n</html>\r\n");
 
         }
     }

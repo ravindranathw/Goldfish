@@ -1,18 +1,20 @@
 ﻿using System;
 using System.ComponentModel.Composition;
+using Goldfish.Extend;
 
 namespace Goldfish.Manager
 {
 	/// <summary>
 	/// The main manager module.
 	/// </summary>
-	[Export(typeof(Goldfish.Extend.IModule))]
-	public class ManagerModule : Goldfish.Extend.IModule
+	[Module(Name="Manager")]
+	[Export(typeof(IModule))]
+	public class ManagerModule : Module
 	{
 		/// <summary>
 		/// Initializes the manager module.
 		/// </summary>
-		public void Init() {
+		public override void Init() {
 			Goldfish.Hooks.App.Init.RegisterPrecompiledViews += assemblies => {
 				assemblies.Add(typeof(Goldfish.Manager.ManagerModule).Assembly);
 			};

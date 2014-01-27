@@ -1,22 +1,37 @@
-﻿html {
+﻿//
+// General rules.
+//
+
+@import "Colors.less";
+
+html {
 	font-family: "Montserrat", sans-serif;
+	font-size: 0.8em;
+	color: @main-text-color;
 }
 html, body {
-	background: #ededed;
+	background: @bg-color;
 	height: 100%;
 	min-height: 100%;
 }
 #main {
-	background: #fdfdfd;
+	background: @main-bg-color;
 	width: 1024px;
 	height: 100%;
-	min-height: 100%;
 
 	.inner {
-		padding: 14px 14px 14px 104px;
+		padding: 2em;
 	}
+}
+
+h1, h2, h3, h4 {
+	color: @header-text-color;
 }
 
 h1 {
 	font-weight: normal;
+	margin-top: 0;
+}
+a {
+	color: @main-text-color;
 }

@@ -159,6 +159,10 @@
       <Project>{98f0952e-f4af-489c-b5ee-f6f526a71443}</Project>
       <Name>Goldfish.Feed</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Modules\Goldfish.FilePoster\Goldfish.FilePoster.csproj">
+      <Project>{cc2547cc-e0c6-4d3c-b747-b0349beb2e87}</Project>
+      <Name>Goldfish.FilePoster</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Modules\Goldfish.Manager\Goldfish.Manager.csproj">
       <Project>{637db039-cde8-4a02-aecd-88c894afbe22}</Project>
       <Name>Goldfish.Manager</Name>
