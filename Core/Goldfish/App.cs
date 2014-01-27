@@ -1,4 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.Composition;
+using System.ComponentModel.Composition.Hosting;
+using System.Web;
 using AutoMapper;
 
 namespace Goldfish
@@ -24,6 +28,11 @@ namespace Goldfish
 		/// Initialization mutex.
 		/// </summary>
 		private object mutex = new object();
+
+		/// <summary>
+		/// The main composition container.
+		/// </summary>
+		private CompositionContainer container;
 		#endregion
 
 		#region Properties
@@ -36,6 +45,12 @@ namespace Goldfish
 		/// Gets the entity cache.
 		/// </summary>
 		internal Cache.AppCache EntityCache { get; private set; }
+
+		/// <summary>
+		/// The currently imported modules.
+		/// </summary>
+		[ImportMany(typeof(Extend.IModule))]
+		internal IEnumerable<Lazy<Extend.IModule>> Modules { get; set; }
 		#endregion
 
 		/// <summary>
@@ -79,6 +94,17 @@ namespace Goldfish
 
 						// Create entity cache
 						EntityCache = IoCContainer.Resolve<Cache.AppCache>();
+
+						// Compose parts
+						var catalog = new AggregateCatalog();
+
+						if (HttpContext.Current != null) {
+							catalog.Catalogs.Add(new DirectoryCatalog("Bin"));
+						} else {
+							catalog.Catalogs.Add(new DirectoryCatalog(AppDomain.CurrentDomain.BaseDirectory));
+						}
+						container = new CompositionContainer(catalog);
+						container.ComposeParts(this);
 
 						// Entities => Models
 						Mapper.CreateMap<Entities.Author, Models.Author>();
@@ -129,6 +155,10 @@ namespace Goldfish
 
 						// Assert configuration
 						Mapper.AssertConfigurationIsValid();
+
+						// Init modules
+						foreach (var module in this.Modules)
+							module.Value.Init();
 
 						// Set state
 						IsInitialized = true;

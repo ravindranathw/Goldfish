@@ -1,5 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Reflection;
 using System.Web.Mvc;
+using System.Web;
+using System.Web.WebPages;
+using RazorGenerator.Mvc;
 
 namespace Goldfish.Web.Mvc
 {
@@ -54,8 +59,26 @@ namespace Goldfish.Web.Mvc
 		/// Registers the goldfish view engine.
 		/// </summary>
 		public static void Register() {
+			// Clear the view enginges collection
 			ViewEngines.Engines.Clear();
+
+			// Create the theme view engines
 			ViewEngines.Engines.Add(new ViewEngine());
+
+			var assemblies = new List<Assembly>();
+
+			// Check if any modules have registered for precompiled views.
+			if (Hooks.App.Init.RegisterPrecompiledViews != null)
+				Hooks.App.Init.RegisterPrecompiledViews(assemblies);
+
+			// Create precompiled view engines for all requested modules.
+			foreach (var assembly in assemblies) { 
+				var engine = new PrecompiledMvcEngine(assembly) {
+					UsePhysicalViewsIfNewer = HttpContext.Current.Request.IsLocal
+				};
+				ViewEngines.Engines.Add(engine);
+				VirtualPathFactoryManager.RegisterVirtualPathFactory(engine);
+			}
 		}
 	}
 }

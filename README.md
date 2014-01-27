@@ -5,8 +5,10 @@ Goldfish is a **lightweight**, **modular** and **high performance** blogging pla
 * ASP.NET MVC 5.1
 * ASP.NET Identity 1.0
 * Entity Framework 6.0.2
+* Microsoft Extensibility Framework
 * WebActivatorEx 2.0.4
 * MarkdownSharp 1.13
+* RazorGenerator.Mvc 2.2.1
 * AutoMapper 3.1.1
 * TinyIoC 1.2
 

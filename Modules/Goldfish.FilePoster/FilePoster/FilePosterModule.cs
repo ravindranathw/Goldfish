@@ -1,21 +1,20 @@
 ﻿using System;
+using System.ComponentModel.Composition;
 using System.IO;
 using System.Web;
-using WebActivatorEx;
-
-[assembly: PostApplicationStartMethod(typeof(Goldfish.FilePoster.Startup), "Init")]
 
 namespace Goldfish.FilePoster
 {
 	/// <summary>
 	/// Starts the file poster module.
 	/// </summary>
-	public class Startup
+	[Export(typeof(Goldfish.Extend.IModule))]
+	public class FilePosterModule : Goldfish.Extend.IModule
 	{
 		/// <summary>
 		/// Initializes the file poster module.
 		/// </summary>
-		public static void Init() {
+		public void Init() {
 			var context = HttpContext.Current;
 			var path = context.Server.MapPath("~/App_Data/FilePoster");
 			

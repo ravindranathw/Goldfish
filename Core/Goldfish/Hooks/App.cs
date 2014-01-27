@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Reflection;
 using System.Web;
 
 namespace Goldfish.Hooks
@@ -33,6 +34,12 @@ namespace Goldfish.Hooks
 			/// </summary>
 			/// <param name="container">The current IoC container.</param>
 			public delegate void IoCRegistrationDelegate(TinyIoCContainer container);
+
+			/// <summary>
+			/// Delegate for adding an assembly to the precompiled view engine.
+			/// </summary>
+			/// <param name="assemblies"></param>
+			public delegate void PrecompiledViewEngingeRegistration(IList<Assembly> assemblies);
 		}
 
 		/// <summary>
@@ -74,6 +81,12 @@ namespace Goldfish.Hooks
 			/// IoC container.
 			/// </summary>
 			public static Delegates.IoCRegistrationDelegate Register;
+
+			/// <summary>
+			/// Called when the view engines are registered. This hooks can be used
+			/// to add an assembly to be registered for precompiled views.
+			/// </summary>
+			public static Delegates.PrecompiledViewEngingeRegistration RegisterPrecompiledViews;
 		}
 
 		/// <summary>
