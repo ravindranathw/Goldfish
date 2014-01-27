@@ -88,6 +88,50 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Manager\Assets\Css\Less\Fonts.css">
+      <DependentUpon>Fonts.less</DependentUpon>
+    </Content>
+    <Content Include="Areas\Manager\Assets\Css\Less\Fonts.min.css">
+      <DependentUpon>Fonts.css</DependentUpon>
+    </Content>
+    <Content Include="Areas\Manager\Assets\Css\Less\General.css">
+      <DependentUpon>General.less</DependentUpon>
+    </Content>
+    <Content Include="Areas\Manager\Assets\Css\Less\General.min.css">
+      <DependentUpon>General.css</DependentUpon>
+    </Content>
+    <Content Include="Areas\Manager\Assets\Css\Less\Icons.css">
+      <DependentUpon>Icons.less</DependentUpon>
+    </Content>
+    <Content Include="Areas\Manager\Assets\Css\Less\Icons.min.css">
+      <DependentUpon>Icons.css</DependentUpon>
+    </Content>
+    <Content Include="Areas\Manager\Assets\Css\Less\Mixins.css">
+      <DependentUpon>Mixins.less</DependentUpon>
+    </Content>
+    <Content Include="Areas\Manager\Assets\Css\Less\Mixins.min.css">
+      <DependentUpon>Mixins.css</DependentUpon>
+    </Content>
+    <Content Include="Areas\Manager\Assets\Css\Less\Navigation.css">
+      <DependentUpon>Navigation.less</DependentUpon>
+    </Content>
+    <Content Include="Areas\Manager\Assets\Css\Less\Navigation.min.css">
+      <DependentUpon>Navigation.css</DependentUpon>
+    </Content>
+    <Content Include="Areas\Manager\Assets\Css\Less\Normalize.css.css">
+      <DependentUpon>Normalize.css.less</DependentUpon>
+    </Content>
+    <Content Include="Areas\Manager\Assets\Css\Less\Normalize.css.min.css">
+      <DependentUpon>Normalize.css.css</DependentUpon>
+    </Content>
+    <Content Include="Areas\Manager\Assets\Css\Style.css">
+      <DependentUpon>Style.less</DependentUpon>
+    </Content>
+    <EmbeddedResource Include="Areas\Manager\Assets\Css\Style.min.css">
+      <DependentUpon>Style.css</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Manager\Assets\Fonts\Icons\icons.svg" />
+    <EmbeddedResource Include="Areas\Manager\Assets\Fonts\Montserrat\montserrat-regular-webfont.svg" />
     <Content Include="packages.config" />
     <Content Include="Areas\Manager\Views\web.config" />
     <Content Include="Areas\Manager\Views\Dashboard\Start.cshtml">
@@ -102,6 +146,19 @@
       <Generator>RazorGenerator</Generator>
       <LastGenOutput>_ViewStart.generated.cs</LastGenOutput>
     </Content>
+    <Content Include="Areas\Manager\Assets\Css\Less\Normalize.css.less" />
+    <Content Include="Areas\Manager\Assets\Css\Style.less" />
+    <Content Include="Areas\Manager\Assets\Css\Less\Navigation.less" />
+    <Content Include="Areas\Manager\Assets\Css\Less\General.less" />
+    <EmbeddedResource Include="Areas\Manager\Assets\Fonts\Icons\icons.eot" />
+    <EmbeddedResource Include="Areas\Manager\Assets\Fonts\Icons\icons.ttf" />
+    <EmbeddedResource Include="Areas\Manager\Assets\Fonts\Icons\icons.woff" />
+    <Content Include="Areas\Manager\Assets\Css\Less\Icons.less" />
+    <Content Include="Areas\Manager\Assets\Css\Less\Mixins.less" />
+    <EmbeddedResource Include="Areas\Manager\Assets\Fonts\Montserrat\montserrat-regular-webfont.eot" />
+    <EmbeddedResource Include="Areas\Manager\Assets\Fonts\Montserrat\montserrat-regular-webfont.ttf" />
+    <EmbeddedResource Include="Areas\Manager\Assets\Fonts\Montserrat\montserrat-regular-webfont.woff" />
+    <Content Include="Areas\Manager\Assets\Css\Less\Fonts.less" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -147,8 +204,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Areas\Manager\Assets\Css\Less\" />
-    <Folder Include="Areas\Manager\Assets\Fonts\" />
     <Folder Include="Areas\Manager\Assets\Scripts\" />
   </ItemGroup>
   <ItemGroup>

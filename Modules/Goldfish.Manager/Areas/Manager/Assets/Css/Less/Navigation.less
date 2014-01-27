@@ -1,0 +1,50 @@
+﻿@import "Mixins.less";
+
+#navigation {
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+
+	#main-navigation {
+		background: #181818;
+		color: #fff;
+		position: absolute;
+		margin: 0;
+		padding: 0;
+		width: 90px;
+		height: 100%;
+		top: 0;
+		left: 0;
+
+		a {
+			color: #666;
+			display: block;
+			width: 100%;
+			font-size: 10px;
+			text-align: center;
+			text-decoration: none;
+			padding: 18px 0;
+			list-style-type: none;
+			border-bottom: 1px solid #282828;
+			.transition(0.2s);
+
+			span {
+				display: block;
+				font-size: 24px;
+				margin-bottom: 10px;
+			}
+
+			&:hover {
+				background: #1d1d1d;
+				color: #999;
+				.transition(0.2s);
+
+				span {
+					color: #fff;
+					.transition(0.2s);
+				}
+			}
+		}
+	}
+}

@@ -72,7 +72,7 @@ namespace Goldfish.Manager
 			assets = new Dictionary<string, Asset>();
 
 			foreach (var name in assembly.GetManifestResourceNames()) {
-				assets.Add(name.Replace("Goldfish.Areas.Manager.", "").ToLower(), new Asset() {
+				assets.Add(name.Replace("Goldfish.Areas.Manager.Assets.", "").ToLower(), new Asset() {
 					Name = name, MimeType = GetMimeType(name)
 				});
 			}

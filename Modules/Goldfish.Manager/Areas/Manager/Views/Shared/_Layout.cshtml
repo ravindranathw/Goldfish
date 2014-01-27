@@ -5,10 +5,23 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>This is the layout</title>
+
+	<link rel="stylesheet" type="text/css" href="@Href("~/manager/assets.ashx/css/style.min.css")" />
 </head>
 <body>
-    <div> 
-	@RenderBody()
+	<nav id="navigation" role="navigation">
+		<ul id="main-navigation">
+			<li><a target="preview" href="@Href("~/")"><span class="icon-eye"></span>Preview</a></li>
+			<li><a href="#"><span class="icon-gauge"></span>Dashboard</a></li>
+			<li><a href="#"><span class="icon-newspaper"></span>Content</a></li>
+			<li><a href="#"><span class="icon-cog"></span>Settings</a></li>
+			<li><a href="@Url.Action("Logout", "Account")"><span class="icon-logout"></span>Logout</a></li>
+		</ul>
+	</nav>
+    <div id="main"> 
+		<div class="inner">
+		@RenderBody()
+		</div>
     </div>
 </body>
 </html>

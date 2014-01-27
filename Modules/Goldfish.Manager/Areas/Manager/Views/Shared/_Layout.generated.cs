@@ -43,18 +43,110 @@ WriteLiteral(" name=\"viewport\"");
 
 WriteLiteral(" content=\"width=device-width\"");
 
-WriteLiteral(" />\r\n    <title>This is the layout</title>\r\n</head>\r\n<body>\r\n    <div> \r\n");
+WriteLiteral(" />\r\n    <title>This is the layout</title>\r\n\r\n\t<link");
 
-WriteLiteral("\t");
+WriteLiteral(" rel=\"stylesheet\"");
+
+WriteLiteral(" type=\"text/css\"");
+
+WriteAttribute("href", Tuple.Create(" href=\"", 176), Tuple.Create("\"", 231)
+            
+            #line 9 "..\..\Areas\Manager\Views\Shared\_Layout.cshtml"
+, Tuple.Create(Tuple.Create("", 183), Tuple.Create<System.Object, System.Int32>(Href("~/manager/assets.ashx/css/style.min.css")
+            
+            #line default
+            #line hidden
+, 183), false)
+);
+
+WriteLiteral(" />\r\n</head>\r\n<body>\r\n\t<nav");
+
+WriteLiteral(" id=\"navigation\"");
+
+WriteLiteral(" role=\"navigation\"");
+
+WriteLiteral(">\r\n\t\t<ul");
+
+WriteLiteral(" id=\"main-navigation\"");
+
+WriteLiteral(">\r\n\t\t\t<li><a");
+
+WriteLiteral(" target=\"preview\"");
+
+WriteAttribute("href", Tuple.Create(" href=\"", 351), Tuple.Create("\"", 369)
+            
+            #line 14 "..\..\Areas\Manager\Views\Shared\_Layout.cshtml"
+, Tuple.Create(Tuple.Create("", 358), Tuple.Create<System.Object, System.Int32>(Href("~/")
+            
+            #line default
+            #line hidden
+, 358), false)
+);
+
+WriteLiteral("><span");
+
+WriteLiteral(" class=\"icon-eye\"");
+
+WriteLiteral("></span>Preview</a></li>\r\n\t\t\t<li><a");
+
+WriteLiteral(" href=\"#\"");
+
+WriteLiteral("><span");
+
+WriteLiteral(" class=\"icon-gauge\"");
+
+WriteLiteral("></span>Dashboard</a></li>\r\n\t\t\t<li><a");
+
+WriteLiteral(" href=\"#\"");
+
+WriteLiteral("><span");
+
+WriteLiteral(" class=\"icon-newspaper\"");
+
+WriteLiteral("></span>Content</a></li>\r\n\t\t\t<li><a");
+
+WriteLiteral(" href=\"#\"");
+
+WriteLiteral("><span");
+
+WriteLiteral(" class=\"icon-cog\"");
+
+WriteLiteral("></span>Settings</a></li>\r\n\t\t\t<li><a");
+
+WriteAttribute("href", Tuple.Create(" href=\"", 640), Tuple.Create("\"", 679)
+            
+            #line 18 "..\..\Areas\Manager\Views\Shared\_Layout.cshtml"
+, Tuple.Create(Tuple.Create("", 647), Tuple.Create<System.Object, System.Int32>(Url.Action("Logout", "Account")
+            
+            #line default
+            #line hidden
+, 647), false)
+);
+
+WriteLiteral("><span");
+
+WriteLiteral(" class=\"icon-logout\"");
+
+WriteLiteral("></span>Logout</a></li>\r\n\t\t</ul>\r\n\t</nav>\r\n    <div");
+
+WriteLiteral(" id=\"main\"");
+
+WriteLiteral("> \r\n\t\t<div");
+
+WriteLiteral(" class=\"inner\"");
+
+WriteLiteral(">\r\n");
+
+WriteLiteral("\t\t");
 
             
-            #line 11 "..\..\Areas\Manager\Views\Shared\_Layout.cshtml"
-Write(RenderBody());
+            #line 23 "..\..\Areas\Manager\Views\Shared\_Layout.cshtml"
+   Write(RenderBody());
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n    </div>\r\n</body>\r\n</html>\r\n");
+WriteLiteral("\r\n\t\t</div>\r\n    </div>\r\n</body>\r\n</html>\r\n");
 
         }
     }
