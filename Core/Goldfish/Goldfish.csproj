@@ -206,6 +206,8 @@
     <Compile Include="Utils.cs" />
     <Compile Include="Helpers\Blog.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="Web\Resource.cs" />
+    <Compile Include="Web\ResourceManager.cs" />
     <Compile Include="Web\Mvc\ControllerFactory.cs" />
     <Compile Include="Web\Mvc\ViewEngine.cs" />
     <Compile Include="Helpers\UI.cs" />
