@@ -111,6 +111,28 @@ namespace Goldfish.Hooks
 			/// this method is appended to the default meta data.
 			/// </summary>
 			public static Hooks.Delegates.OutputAppendDelegate GetMeta;
+
+			/// <summary>
+			/// Called when javascripts should get rendered. This hooks should be used by all
+			/// modules wanting to include scripts.
+			/// </summary>
+			public static Hooks.Delegates.OutputAppendDelegate GetScripts;
+		}
+
+		/// <summary>
+		/// The hooks available for the request lifecycles.
+		/// </summary>
+		public static class Request 
+		{
+			/// <summary>
+			/// Called when the http request begins.
+			/// </summary>
+			public static Hooks.Delegates.EventDelegate OnBeginRequest;
+
+			/// <summary>
+			/// Called when the http request ends.
+			/// </summary>
+			public static Hooks.Delegates.EventDelegate OnEndRequest;
 		}
 	}
 }

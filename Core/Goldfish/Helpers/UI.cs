@@ -49,6 +49,20 @@ namespace Goldfish.Helpers
 		}
 
 		/// <summary>
+		/// Gets the requested scripts for the current request.
+		/// </summary>
+		/// <returns>The scripts</returns>
+		public static IHtmlString Scripts() {
+			var str = new StringBuilder();
+
+			// Execute hooks
+			if (Hooks.App.UI.GetScripts != null)
+				Hooks.App.UI.GetScripts(str);
+
+			return new HtmlString(str.ToString());
+		}
+
+		/// <summary>
 		/// Generates a gravatar url for the given email and size.
 		/// </summary>
 		/// <param name="email">The email address</param>

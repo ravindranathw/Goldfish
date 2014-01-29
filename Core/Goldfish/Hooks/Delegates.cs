@@ -34,7 +34,14 @@ namespace Goldfish.Hooks
 		/// <summary>
 		/// Delegate for appending rendered output to a string builder.
 		/// </summary>
-		/// <param name="sb">The string builder</param>			/// <param name="model">The model</param>
+		/// <param name="sb">The string builder</param>			
 		public delegate void OutputAppendDelegate(StringBuilder sb);
+
+		/// <summary>
+		/// Delegate for handling a generic event.
+		/// </summary>
+		/// <param name="sender">The event sender</param>
+		/// <param name="e">Optional event arguments</param>
+		public delegate void EventDelegate(object sender, EventArgs e);
 	}
 }
