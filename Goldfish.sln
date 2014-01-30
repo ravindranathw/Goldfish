@@ -24,7 +24,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".docs", ".docs", "{EC396DD9
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api", "Api", "{24B573C7-AAFB-474E-A150-673E1ABAB3B9}"
 	ProjectSection(SolutionItems) = preProject
+		Docs\Api\ArchiveRepository.md = Docs\Api\ArchiveRepository.md
+		Docs\Api\AuthorRepository.md = Docs\Api\AuthorRepository.md
+		Docs\Api\CategoryRepository.md = Docs\Api\CategoryRepository.md
+		Docs\Api\CommentRepository.md = Docs\Api\CommentRepository.md
+		Docs\Api\ParamRepository.md = Docs\Api\ParamRepository.md
+		Docs\Api\PostRepository.md = Docs\Api\PostRepository.md
 		Docs\Api\Readme.md = Docs\Api\Readme.md
+		Docs\Api\TagRepository.md = Docs\Api\TagRepository.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Hooks", "Hooks", "{6CEA8D27-22A1-40FF-AE37-528C0073E1C2}"
@@ -38,8 +45,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Config", "Config", "{B7CFD5
 		Docs\Config\App.md = Docs\Config\App.md
 		Docs\Config\Blog.md = Docs\Config\Blog.md
 	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{BB695FF1-9CB2-4EE1-AE34-C931D1DBC5CE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Template", "Core\Template\Template.csproj", "{80B2E6DF-B5B5-45CA-9BB5-C76A696AFFC3}"
 EndProject
@@ -84,6 +89,5 @@ Global
 		{24B573C7-AAFB-474E-A150-673E1ABAB3B9} = {EC396DD9-F568-4A68-987D-E4BA17FE1B19}
 		{6CEA8D27-22A1-40FF-AE37-528C0073E1C2} = {EC396DD9-F568-4A68-987D-E4BA17FE1B19}
 		{B7CFD524-CDE8-43AB-B08F-BFA4A0FED962} = {EC396DD9-F568-4A68-987D-E4BA17FE1B19}
-		{BB695FF1-9CB2-4EE1-AE34-C931D1DBC5CE} = {EC396DD9-F568-4A68-987D-E4BA17FE1B19}
 	EndGlobalSection
 EndGlobal
