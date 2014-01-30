@@ -25,7 +25,7 @@ namespace Goldfish.Repositories.Default
 		/// </summary>
 		/// <param name="db">The current context</param>
 		public CategoryRepository(Db db)
-			: base(db, App.Instance.EntityCache.Categories, Hooks.Blog.Model.OnCategoryLoad) { }
+			: base(db, App.Instance.ModelCache.Categories, Hooks.Blog.Model.OnCategoryLoad) { }
 
 		/// <summary>
 		/// Gets the entity query for the given key.

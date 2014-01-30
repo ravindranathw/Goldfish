@@ -29,7 +29,7 @@ namespace Goldfish.Entities
 		/// Removes the current entity from the application cache.
 		/// </summary>
 		public void RemoveFromCache() {
-			App.Instance.EntityCache.Categories.Remove(Id);
+			App.Instance.ModelCache.Categories.Remove(Id);
 		}
 	}
 }

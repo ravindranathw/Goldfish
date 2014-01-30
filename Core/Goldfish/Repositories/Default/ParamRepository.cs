@@ -23,7 +23,7 @@ namespace Goldfish.Repositories.Default
 		/// </summary>
 		/// <param name="db">The current db context</param>
 		public ParamRepository(Db db)
-			: base(db, App.Instance.EntityCache.Params, Hooks.App.Model.OnParamLoad) { }
+			: base(db, App.Instance.ModelCache.Params, Hooks.App.Model.OnParamLoad) { }
 
 		/// <summary>
 		/// Gets the entity query for the given key.

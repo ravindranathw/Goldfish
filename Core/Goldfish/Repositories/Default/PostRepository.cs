@@ -26,7 +26,7 @@ namespace Goldfish.Repositories.Default
 		/// </summary>
 		/// <param name="db">The current context</param>
 		public PostRepository(Db db) 
-			: base(db, App.Instance.EntityCache.Posts, Hooks.Blog.Model.OnPostLoad) { }
+			: base(db, App.Instance.ModelCache.Posts, Hooks.Blog.Model.OnPostLoad) { }
 
 		/// <summary>
 		/// Gets the posts matching the given predicate.

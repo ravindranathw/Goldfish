@@ -50,7 +50,7 @@ namespace Goldfish
 		/// <summary>
 		/// Gets the entity cache.
 		/// </summary>
-		internal Cache.AppCache EntityCache { get; private set; }
+		internal Cache.AppCache ModelCache { get; private set; }
 
 		/// <summary>
 		/// The currently imported modules.
@@ -98,8 +98,8 @@ namespace Goldfish
 						if (Hooks.App.Init.Register != null)
 							Hooks.App.Init.Register(IoCContainer);
 
-						// Create entity cache
-						EntityCache = IoCContainer.Resolve<Cache.AppCache>();
+						// Create model cache
+						ModelCache = IoCContainer.Resolve<Cache.AppCache>();
 
 						// Compose parts
 						var catalog = new AggregateCatalog();

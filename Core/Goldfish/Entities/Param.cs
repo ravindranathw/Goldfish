@@ -40,7 +40,7 @@ namespace Goldfish.Entities
 		/// Removes the current entity from the application cache.
 		/// </summary>
 		public void RemoveFromCache() {
-			App.Instance.EntityCache.Params.Remove(Id);
+			App.Instance.ModelCache.Params.Remove(Id);
 
 			if (InternalId == "THEME")
 				Web.Mvc.ViewEngine.Register();

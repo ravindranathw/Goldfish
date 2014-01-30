@@ -25,7 +25,7 @@ namespace Goldfish.Repositories.Default
 		/// </summary>
 		/// <param name="db">The current context</param>
 		public TagRepository(Db db)
-			: base(db, App.Instance.EntityCache.Tags, Hooks.Blog.Model.OnTagLoad) { }
+			: base(db, App.Instance.ModelCache.Tags, Hooks.Blog.Model.OnTagLoad) { }
 
 		/// <summary>
 		/// Gets the entity query for the given key.
