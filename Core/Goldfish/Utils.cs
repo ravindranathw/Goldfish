@@ -82,6 +82,23 @@ namespace Goldfish
 		}
 
 		/// <summary>
+		/// Generates a slug for the given filename.
+		/// </summary>
+		/// <param name="str">The filename</param>
+		/// <returns>The slug</returns>
+		public static string GenerateFileSlug(string filename) {
+			var index = filename.LastIndexOf('.');
+
+			if (index != -1) {
+				var name = filename.Substring(0, index);
+				var ending = filename.Substring(index);
+
+				return GenerateSlug(name) + ending;
+			}
+			return GenerateSlug(filename);
+		}
+
+		/// <summary>
 		/// Gets the param value with the given key.
 		/// </summary>
 		/// <typeparam name="T">The value type</typeparam>
