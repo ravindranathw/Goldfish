@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+ * Copyright (c) 2014 Håkan Edling
+ *
+ * See the file LICENSE for copying permission.
+ */
+
+using System;
 using System.ComponentModel.Composition;
 using System.IO;
 using System.Web;
@@ -9,14 +15,13 @@ namespace Goldfish.FilePoster
 	/// <summary>
 	/// Starts the file poster module.
 	/// </summary>
-	[Module(Name="File poster", Config=typeof(Config.FilePoster))]
 	[Export(typeof(IModule))]
-	public class FilePosterModule : Module
+	public class FilePosterModule : IModule
 	{
 		/// <summary>
 		/// Initializes the file poster module.
 		/// </summary>
-		public override void Init() {
+		public void Init() {
 			var context = HttpContext.Current;
 			var path = context.Server.MapPath("~/App_Data/FilePoster");
 			

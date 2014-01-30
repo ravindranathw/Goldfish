@@ -134,7 +134,6 @@
     <Compile Include="Config\App.cs" />
     <Compile Include="Config\Blog.cs" />
     <Compile Include="Extend\IModule.cs" />
-    <Compile Include="Extend\Module.cs" />
     <Compile Include="Extend\ModuleAttribute.cs" />
     <Compile Include="Hooks\App.cs" />
     <Compile Include="Hooks\Blog.cs" />
