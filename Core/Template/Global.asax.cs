@@ -9,8 +9,8 @@ using Goldfish.Models;
 
 namespace Template
 {
-    public class MvcApplication : System.Web.HttpApplication
-    {
+	public class MvcApplication : System.Web.HttpApplication
+	{
 		protected void Session_Start(Object sender, EventArgs e) {
 			// This line is just to make sure that even unauthorized used will
 			// get a presistent session. The reason for this is so that people
@@ -18,9 +18,9 @@ namespace Template
 			Session["Started"] = true;
 		}
 
-        protected void Application_Start() {
-            RouteConfig.RegisterRoutes(RouteTable.Routes);
-            AreaRegistration.RegisterAllAreas();
+		protected void Application_Start() {
+			RouteConfig.RegisterRoutes(RouteTable.Routes);
+			AreaRegistration.RegisterAllAreas();
 
 			Goldfish.Hooks.App.Db.Seed = db => {
 				// Add some data
@@ -57,13 +57,13 @@ namespace Template
 					}
 
 					if (api.Comments.GetByPostId(post.Id.Value).Count == 0) {
-						var comment = new Comment() { 
+						var comment = new Comment() {
 							PostId = post.Id.Value,
 							Author = "Håkan",
 							Email = "hakan@tidyui.com",
-							Body = 
+							Body =
 								"For more information, please visit Goldfish at Github\n\n" +
-								"http://github.com/tidyui/goldfish\n\n" + 
+								"http://github.com/tidyui/goldfish\n\n" +
 								"Happy blogging!",
 							IsApproved = true
 						};
@@ -72,6 +72,6 @@ namespace Template
 					}
 				}
 			};
-        }
-    }
+		}
+	}
 }
