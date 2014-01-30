@@ -131,6 +131,7 @@ namespace Goldfish.FilePoster
 				var post = api.Posts.GetBySlug(Utils.GenerateSlug(oldname));
 				if (post != null) {
 					post.Title = name;
+					post.Slug = Utils.GenerateSlug(name);
 					api.Posts.Add(post);
 					api.SaveChanges();
 				}
