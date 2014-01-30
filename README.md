@@ -18,6 +18,12 @@ Goldfish was initially created as a sandbox project to test new concepts for the
 
 Goldfish is released under the **MIT** license giving you permission to do pretty much **anything** you want with the source code as long as you include the copyright notices.
 
+## Current status
+
+The project is still in early development and lacks a lot of features to be considered a full release. To check out the current status, post feature requests or report bugs, please refer to the [issue list](http://github.com/goldfish/issues).
+
+If you like the looks of the project **please** contribute to it by **forking** it, adding new functionality or modules and sending me a **pull request**.
+
 ## Features
 
 ### Extreme page speed
