@@ -31,6 +31,12 @@ namespace Goldfish.Hooks
 			/// Called after the model has been loaded from the database but before it
 			/// has been put into the application cache.
 			/// </summary>
+			public static Delegates.ModelDelegate<Models.Comment> OnCommentLoad;
+
+			/// <summary>
+			/// Called after the model has been loaded from the database but before it
+			/// has been put into the application cache.
+			/// </summary>
 			public static Delegates.ModelDelegate<Models.Post> OnPostLoad;
 
 			/// <summary>

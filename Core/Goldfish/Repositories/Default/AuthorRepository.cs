@@ -19,7 +19,7 @@ namespace Goldfish.Repositories.Default
 		/// </summary>
 		/// <param name="db">The current context</param>
 		public AuthorRepository(Db db)
-			: base(db, null, Hooks.Blog.Model.OnAuthorLoad) { }
+			: base(db, App.Instance.EntityCache.Authors, Hooks.Blog.Model.OnAuthorLoad) { }
 
 		/// <summary>
 		/// Gets the entity query for the given model.

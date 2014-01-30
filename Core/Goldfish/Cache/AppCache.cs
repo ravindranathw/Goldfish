@@ -9,6 +9,11 @@ namespace Goldfish.Cache
 	{
 		#region Members
 		/// <summary>
+		/// The author cache.
+		/// </summary>
+		public readonly ModelCache<Models.Author> Authors;
+
+		/// <summary>
 		/// The category cache.
 		/// </summary>
 		public readonly ModelCache<Models.Category> Categories;
@@ -33,7 +38,8 @@ namespace Goldfish.Cache
 		/// Default constructor.
 		/// </summary>
 		/// <param name="container">The IoC container</param>
-		public AppCache(ICacheProvider provider) { 
+		public AppCache(ICacheProvider provider) {
+			Authors = new ModelCache<Models.Author>(provider, a => a.Id.Value, a => a.Email);
 			Categories = new ModelCache<Models.Category>(provider, c => c.Id.Value, c => c.Slug);
 			Params = new ModelCache<Models.Param>(provider, p => p.Id.Value, p => p.InternalId);
 			Posts = new ModelCache<Models.Post>(provider, p => p.Id.Value, p => p.Slug);

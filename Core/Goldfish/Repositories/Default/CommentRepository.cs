@@ -18,7 +18,7 @@ namespace Goldfish.Repositories.Default
 		/// </summary>
 		/// <param name="db">The current context.</param>
 		public CommentRepository(Db db)
-			: base(db, null, null) { }
+			: base(db, null, Hooks.Blog.Model.OnCommentLoad) { }
 
 		/// <summary>
 		/// Gets the comments available for the post with the given id.
