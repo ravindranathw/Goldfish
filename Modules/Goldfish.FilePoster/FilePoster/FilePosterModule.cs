@@ -29,7 +29,6 @@ namespace Goldfish.FilePoster
 			if (!Directory.Exists(path)) {
 				Directory.CreateDirectory(path);
 			}
-			Poster.Path = path;
 
 			// Start the file system watcher
 			var watcher = new FileSystemWatcher(path, "*.md");
