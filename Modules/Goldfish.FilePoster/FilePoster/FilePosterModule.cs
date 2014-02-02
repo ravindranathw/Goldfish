@@ -23,15 +23,16 @@ namespace Goldfish.FilePoster
 		/// </summary>
 		public void Init() {
 			var context = HttpContext.Current;
-			var path = context.Server.MapPath("~/App_Data/FilePoster");
+			var path = context.Server.MapPath("~/App_Data/FilePoster/");
 			
 			// Ensure upload directory
 			if (!Directory.Exists(path)) {
 				Directory.CreateDirectory(path);
 			}
+			Poster.Path = path;
 
 			// Start the file system watcher
-			var watcher = new FileSystemWatcher(path);
+			var watcher = new FileSystemWatcher(path, "*.md");
 			context.Application.Add("FilePoster", watcher);
 			context.ApplicationInstance.Disposed += ApplicationDisposed;
 
