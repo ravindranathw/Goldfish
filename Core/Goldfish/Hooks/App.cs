@@ -105,6 +105,11 @@ namespace Goldfish.Hooks
 			/// has been put into the application cache.
 			/// </summary>
 			public static Hooks.Delegates.ModelDelegate<Models.Param> OnParamLoad;
+
+			/// <summary>
+			/// Called before the model is saved to the database.
+			/// </summary>
+			public static Hooks.Delegates.ModelSaveDelegate<Models.Param> OnParamSave;
 		}
 
 		/// <summary>

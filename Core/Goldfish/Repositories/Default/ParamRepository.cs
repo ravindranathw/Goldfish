@@ -81,13 +81,24 @@ namespace Goldfish.Repositories.Default
 		/// <param name="source">The source</param>
 		/// <param name="dest">The destination</param>
 		protected override void Add(Models.Param source, Entities.Param dest) {
-			if (dest == null) {
-				dest = new Entities.Param();
-				source.Id = dest.Id = Guid.NewGuid();
+			var state = new Models.ModelState();
 
-				uow.Params.Add(dest);
+			// Execute hooks
+			if (Hooks.App.Model.OnParamSave != null)
+				Hooks.App.Model.OnParamSave(source, state);
+
+			// Proceed if state is valid
+			if (state.IsValid) {
+				if (dest == null) {
+					dest = new Entities.Param();
+					source.Id = dest.Id = Guid.NewGuid();
+
+					uow.Params.Add(dest);
+				}
+				Mapper.Map<Models.Param, Entities.Param>(source, dest);
+			} else { 
+				throw new Models.ModelStateException("Error while adding param. See data for details", state);
 			}
-			Mapper.Map<Models.Param, Entities.Param>(source, dest);
 		}
 	}
 }

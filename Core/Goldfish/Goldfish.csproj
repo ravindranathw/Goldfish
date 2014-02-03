@@ -178,6 +178,8 @@
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\CategoryArchive.cs" />
     <Compile Include="Models\Comment.cs" />
+    <Compile Include="Models\ModelStateException.cs" />
+    <Compile Include="Models\ModelState.cs" />
     <Compile Include="Models\Param.cs" />
     <Compile Include="Models\Post.cs" />
     <Compile Include="Models\Tag.cs" />

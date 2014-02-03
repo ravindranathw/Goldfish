@@ -71,13 +71,24 @@ namespace Goldfish.Repositories.Default
 		/// <param name="source">The source</param>
 		/// <param name="dest">The destination</param>
 		protected override void Add(Models.Author source, Entities.Author dest) {
-			if (dest == null) { 
-				dest = new Entities.Author();
-				source.Id = dest.Id = Guid.NewGuid();
+			var state = new Models.ModelState();
 
-				uow.Authors.Add(dest);
+			// Execute hooks
+			if (Hooks.Blog.Model.OnAuthorSave != null)
+				Hooks.Blog.Model.OnAuthorSave(source, state);
+
+			// Proceed if state is valid
+			if (state.IsValid) {
+				if (dest == null) { 
+					dest = new Entities.Author();
+					source.Id = dest.Id = Guid.NewGuid();
+
+					uow.Authors.Add(dest);
+				}
+				Mapper.Map<Models.Author, Entities.Author>(source, dest);
+			} else { 
+				throw new Models.ModelStateException("Error while adding author. See data for details", state);
 			}
-			Mapper.Map<Models.Author, Entities.Author>(source, dest);
 		}
 	}
 }

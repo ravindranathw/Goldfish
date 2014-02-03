@@ -28,10 +28,20 @@ namespace Goldfish.Hooks
 			public static Delegates.ModelDelegate<Models.Author> OnAuthorLoad;
 
 			/// <summary>
+			/// Called before the model is saved to the database.
+			/// </summary>
+			public static Delegates.ModelSaveDelegate<Models.Author> OnAuthorSave;
+
+			/// <summary>
 			/// Called after the model has been loaded from the database but before it
 			/// has been put into the application cache.
 			/// </summary>
  			public static Delegates.ModelDelegate<Models.Category> OnCategoryLoad;
+
+			/// <summary>
+			/// Called before the model is saved to the database.
+			/// </summary>
+			public static Delegates.ModelSaveDelegate<Models.Category> OnCategorySave;
 
 			/// <summary>
 			/// Called after the model has been loaded from the database but before it
@@ -40,16 +50,31 @@ namespace Goldfish.Hooks
 			public static Delegates.ModelDelegate<Models.Comment> OnCommentLoad;
 
 			/// <summary>
+			/// Called before the model is saved to the database.
+			/// </summary>
+			public static Delegates.ModelSaveDelegate<Models.Comment> OnCommentSave;
+
+			/// <summary>
 			/// Called after the model has been loaded from the database but before it
 			/// has been put into the application cache.
 			/// </summary>
 			public static Delegates.ModelDelegate<Models.Post> OnPostLoad;
 
 			/// <summary>
+			/// Called before the model is saved to the database.
+			/// </summary>
+			public static Delegates.ModelSaveDelegate<Models.Post> OnPostSave;
+
+			/// <summary>
 			/// Called after the model has been loaded from the database but before it
 			/// has been put into the application cache.
 			/// </summary>
 			public static Delegates.ModelDelegate<Models.Tag> OnTagLoad;
+
+			/// <summary>
+			/// Called before the model is saved to the database.
+			/// </summary>
+			public static Delegates.ModelSaveDelegate<Models.Tag> OnTagSave;
 		}
 
 		/// <summary>

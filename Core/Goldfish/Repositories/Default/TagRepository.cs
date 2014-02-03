@@ -81,18 +81,29 @@ namespace Goldfish.Repositories.Default
 		/// <param name="source">The source</param>
 		/// <param name="dest">The destination</param>
 		protected override void Add(Models.Tag source, Entities.Tag dest) {
+			var state = new Models.ModelState();
+
+			// Ensure slug format
 			if (String.IsNullOrEmpty(source.Slug))
 				source.Slug = Utils.GenerateSlug(source.Name);
 			else source.Slug = Utils.GenerateSlug(source.Slug);
 
-			if (dest == null) { 
-				dest = new Entities.Tag();
-				source.Id = dest.Id = Guid.NewGuid();
+			// Execute hooks
+			if (Hooks.Blog.Model.OnTagSave != null)
+				Hooks.Blog.Model.OnTagSave(source, state);
 
-				uow.Tags.Add(dest);
+			// Proceed if state is valid
+			if (state.IsValid) {
+				if (dest == null) { 
+					dest = new Entities.Tag();
+					source.Id = dest.Id = Guid.NewGuid();
+
+					uow.Tags.Add(dest);
+				}
+				Mapper.Map<Models.Tag, Entities.Tag>(source, dest);
+			} else { 
+				throw new Models.ModelStateException("Error while adding tag. See data for details", state);
 			}
-
-			Mapper.Map<Models.Tag, Entities.Tag>(source, dest);
 		}
 	}
 }

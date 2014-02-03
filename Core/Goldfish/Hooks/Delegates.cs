@@ -22,6 +22,14 @@ namespace Goldfish.Hooks
 		public delegate void ModelDelegate<T>(T model);
 
 		/// <summary>
+		/// Delegate for manipulating a model before save.
+		/// </summary>
+		/// <typeparam name="T">The model type</typeparam>
+		/// <param name="model">The model</param>
+		/// <param name="state">The model state</param>
+		public delegate void ModelSaveDelegate<T>(T model, Models.ModelState state);
+
+		/// <summary>
 		/// Delegate for returning a string to be rendered.
 		/// </summary>
 		/// <typeparam name="T">The model type</typeparam>

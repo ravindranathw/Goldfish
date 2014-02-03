@@ -103,16 +103,27 @@ namespace Goldfish.Repositories.Default
 		/// <param name="source">The source</param>
 		/// <param name="dest">The destination</param>
 		protected override void Add(Models.Comment source, Entities.Comment dest) {
+			var state = new Models.ModelState();
+
 			// Make sure there's no html tags in the body
 			source.Body = source.Body.StripHtml();
 
-			if (dest == null) {
-				dest = new Entities.Comment() { 
-					PostId = source.PostId
-				};
-				uow.Comments.Add(dest);
+			// Execute hooks
+			if (Hooks.Blog.Model.OnCommentSave != null)
+				Hooks.Blog.Model.OnCommentSave(source, state);
+
+			// Proceed if state is valid
+			if (state.IsValid) {
+				if (dest == null) {
+					dest = new Entities.Comment() {
+						PostId = source.PostId
+					};
+					uow.Comments.Add(dest);
+				}
+				Mapper.Map<Models.Comment, Entities.Comment>(source, dest);
+			} else { 
+				throw new Models.ModelStateException("Error while adding comment. See data for details", state);
 			}
-			Mapper.Map<Models.Comment, Entities.Comment>(source, dest);			
 		}
 	}
 }

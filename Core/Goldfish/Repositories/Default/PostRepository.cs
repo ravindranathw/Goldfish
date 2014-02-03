@@ -152,59 +152,70 @@ namespace Goldfish.Repositories.Default
 		/// <param name="source">The source</param>
 		/// <param name="dest">The destination</param>
 		protected override void Add(Models.Post source, Entities.Post dest) {
+			var state = new Models.ModelState();
+
 			// Format slug
 			if (String.IsNullOrEmpty(source.Slug))
 				source.Slug = Utils.GenerateSlug(source.Title);
 			else source.Slug = Utils.GenerateSlug(source.Slug);
 
-			if (dest == null) {
-				dest = new Entities.Post();
-				source.Id = dest.Id = Guid.NewGuid();
+			// Execute hooks
+			if (Hooks.Blog.Model.OnPostSave != null)
+				Hooks.Blog.Model.OnPostSave(source, state);
 
-				uow.Posts.Add(dest);
-			}
+			// Proceed if state is valid
+			if (state.IsValid) {
+				if (dest == null) {
+					dest = new Entities.Post();
+					source.Id = dest.Id = Guid.NewGuid();
 
-			// Save author
-			if (source.Author != null) {
+					uow.Posts.Add(dest);
+				}
+
+				// Save author
+				if (source.Author != null) {
+					using (var api = new Api()) {
+						api.Authors.Add(source.Author);
+						api.SaveChanges();
+					}
+				}
+
+				// Map author
+				if (source.Author != null)
+					dest.Author = uow.Authors.Where(a => a.Id == source.Author.Id).Single();
+
+				// Save categories & tags
 				using (var api = new Api()) {
-					api.Authors.Add(source.Author);
+					foreach (var c in source.Categories)
+						api.Categories.Add(c);
+					foreach (var t in source.Tags)
+						api.Tags.Add(t);
 					api.SaveChanges();
 				}
+
+				// Map model
+				Mapper.Map<Models.Post, Entities.Post>(source, dest);
+
+				// Map categories
+				var ids = source.Categories.Select(c => c.Id.Value);
+				var removedCat = dest.Categories.Where(c => !ids.Contains(c.Id)).ToList();
+				foreach (var cat in removedCat)
+					dest.Categories.Remove(cat);
+				foreach (var cat in source.Categories)
+					if (dest.Categories.Where(c => c.Id == cat.Id).Count() == 0)
+						dest.Categories.Add(uow.Categories.Where(c => c.Id == cat.Id).Single());
+
+				// Map tags
+				ids = source.Tags.Select(t => t.Id.Value);
+				var removedTags = dest.Tags.Where(t => !ids.Contains(t.Id)).ToList();
+				foreach (var tag in removedTags)
+					dest.Tags.Remove(tag);
+				foreach (var tag in source.Tags)
+					if (dest.Tags.Where(t => t.Id == tag.Id).Count() == 0)
+						dest.Tags.Add(uow.Tags.Where(t => t.Id == tag.Id).Single());
+			} else { 
+				throw new Models.ModelStateException("Error while adding post. See data for details", state);
 			}
-
-			// Map author
-			if (source.Author != null)
-				dest.Author = uow.Authors.Where(a => a.Id == source.Author.Id).Single();
-
-			// Save categories & tags
-			using (var api = new Api()) {
-				foreach (var c in source.Categories)
-					api.Categories.Add(c);
-				foreach (var t in source.Tags)
-					api.Tags.Add(t);
-				api.SaveChanges();
-			}
-
-			// Map model
-			Mapper.Map<Models.Post, Entities.Post>(source, dest);
-
-			// Map categories
-			var ids = source.Categories.Select(c => c.Id.Value);
-			var removedCat = dest.Categories.Where(c => !ids.Contains(c.Id)).ToList();
-			foreach (var cat in removedCat)
-				dest.Categories.Remove(cat);
-			foreach (var cat in source.Categories)
-				if (dest.Categories.Where(c => c.Id == cat.Id).Count() == 0)
-					dest.Categories.Add(uow.Categories.Where(c => c.Id == cat.Id).Single());
-
-			// Map tags
-			ids = source.Tags.Select(t => t.Id.Value);
-			var removedTags = dest.Tags.Where(t => !ids.Contains(t.Id)).ToList();
-			foreach (var tag in removedTags)
-				dest.Tags.Remove(tag);
-			foreach (var tag in source.Tags)
-				if (dest.Tags.Where(t => t.Id == tag.Id).Count() == 0)
-					dest.Tags.Add(uow.Tags.Where(t => t.Id == tag.Id).Single());
 		}
 	}
 }

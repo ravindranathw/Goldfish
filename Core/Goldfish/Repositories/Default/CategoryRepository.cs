@@ -81,18 +81,29 @@ namespace Goldfish.Repositories.Default
 		/// <param name="source">The source</param>
 		/// <param name="dest">The destination</param>
 		protected override void Add(Models.Category source, Entities.Category dest) {
+			var state = new Models.ModelState();
+
+			// Ensure slug format
 			if (String.IsNullOrEmpty(source.Slug))
 				source.Slug = Utils.GenerateSlug(source.Name);
 			else source.Slug = Utils.GenerateSlug(source.Slug);
 
-			if (dest == null) { 
-				dest = new Entities.Category();
-				source.Id = dest.Id = Guid.NewGuid();
+			// Execute hooks
+			if (Hooks.Blog.Model.OnCategorySave!= null)
+				Hooks.Blog.Model.OnCategorySave(source, state);
 
-				uow.Categories.Add(dest);
+			// Proceed if state is valid
+			if (state.IsValid) {
+				if (dest == null) { 
+					dest = new Entities.Category();
+					source.Id = dest.Id = Guid.NewGuid();
+
+					uow.Categories.Add(dest);
+				}
+				Mapper.Map<Models.Category, Entities.Category>(source, dest);
+			} else { 
+				throw new Models.ModelStateException("Error while adding category. See data for details", state);
 			}
-
-			Mapper.Map<Models.Category, Entities.Category>(source, dest);
 		}
 	}
 }
