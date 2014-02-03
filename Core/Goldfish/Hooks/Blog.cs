@@ -20,61 +20,91 @@ namespace Goldfish.Hooks
 		/// The hooks available for the models.
 		/// </summary>
 		public static class Model
-		{ 
+		{
 			/// <summary>
-			/// Called after the model has been loaded from the database but before it
-			/// has been put into the application cache.
+			/// The hooks available for the author model.
 			/// </summary>
-			public static Delegates.ModelDelegate<Models.Author> OnAuthorLoad;
+			public static class Author 
+			{ 
+				/// <summary>
+				/// Called after the model has been loaded from the database but before it
+				/// has been put into the application cache.
+				/// </summary>
+				public static Delegates.ModelDelegate<Models.Author> OnLoad;
+
+				/// <summary>
+				/// Called before the model is saved to the database.
+				/// </summary>
+				public static Delegates.ModelSaveDelegate<Models.Author> OnSave;
+			}
 
 			/// <summary>
-			/// Called before the model is saved to the database.
+			/// The hooks available for the category model.
 			/// </summary>
-			public static Delegates.ModelSaveDelegate<Models.Author> OnAuthorSave;
+			public static class Category 
+			{ 
+				/// <summary>
+				/// Called after the model has been loaded from the database but before it
+				/// has been put into the application cache.
+				/// </summary>
+ 				public static Delegates.ModelDelegate<Models.Category> OnLoad;
+
+				/// <summary>
+				/// Called before the model is saved to the database.
+				/// </summary>
+				public static Delegates.ModelSaveDelegate<Models.Category> OnSave;
+			}
 
 			/// <summary>
-			/// Called after the model has been loaded from the database but before it
-			/// has been put into the application cache.
+			/// The hooks available for the comment model.
 			/// </summary>
- 			public static Delegates.ModelDelegate<Models.Category> OnCategoryLoad;
+			public static class Comment 
+			{ 
+				/// <summary>
+				/// Called after the model has been loaded from the database but before it
+				/// has been put into the application cache.
+				/// </summary>
+				public static Delegates.ModelDelegate<Models.Comment> OnLoad;
+
+				/// <summary>
+				/// Called before the model is saved to the database.
+				/// </summary>
+				public static Delegates.ModelSaveDelegate<Models.Comment> OnSave;
+			}
 
 			/// <summary>
-			/// Called before the model is saved to the database.
+			/// The hooks available for the post model.
 			/// </summary>
-			public static Delegates.ModelSaveDelegate<Models.Category> OnCategorySave;
+			public static class Post 
+			{ 
+				/// <summary>
+				/// Called after the model has been loaded from the database but before it
+				/// has been put into the application cache.
+				/// </summary>
+				public static Delegates.ModelDelegate<Models.Post> OnLoad;
+
+				/// <summary>
+				/// Called before the model is saved to the database.
+				/// </summary>
+				public static Delegates.ModelSaveDelegate<Models.Post> OnSave;
+			}
 
 			/// <summary>
-			/// Called after the model has been loaded from the database but before it
-			/// has been put into the application cache.
+			/// The hooks available for the tag model.
 			/// </summary>
-			public static Delegates.ModelDelegate<Models.Comment> OnCommentLoad;
+			public static class Tag 
+			{ 
+				/// <summary>
+				/// Called after the model has been loaded from the database but before it
+				/// has been put into the application cache.
+				/// </summary>
+				public static Delegates.ModelDelegate<Models.Tag> OnLoad;
 
-			/// <summary>
-			/// Called before the model is saved to the database.
-			/// </summary>
-			public static Delegates.ModelSaveDelegate<Models.Comment> OnCommentSave;
-
-			/// <summary>
-			/// Called after the model has been loaded from the database but before it
-			/// has been put into the application cache.
-			/// </summary>
-			public static Delegates.ModelDelegate<Models.Post> OnPostLoad;
-
-			/// <summary>
-			/// Called before the model is saved to the database.
-			/// </summary>
-			public static Delegates.ModelSaveDelegate<Models.Post> OnPostSave;
-
-			/// <summary>
-			/// Called after the model has been loaded from the database but before it
-			/// has been put into the application cache.
-			/// </summary>
-			public static Delegates.ModelDelegate<Models.Tag> OnTagLoad;
-
-			/// <summary>
-			/// Called before the model is saved to the database.
-			/// </summary>
-			public static Delegates.ModelSaveDelegate<Models.Tag> OnTagSave;
+				/// <summary>
+				/// Called before the model is saved to the database.
+				/// </summary>
+				public static Delegates.ModelSaveDelegate<Models.Tag> OnSave;
+			}
 		}
 
 		/// <summary>

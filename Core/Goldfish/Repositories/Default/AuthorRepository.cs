@@ -25,7 +25,7 @@ namespace Goldfish.Repositories.Default
 		/// </summary>
 		/// <param name="db">The current context</param>
 		public AuthorRepository(Db db)
-			: base(db, App.Instance.ModelCache.Authors, Hooks.Blog.Model.OnAuthorLoad) { }
+			: base(db, App.Instance.ModelCache.Authors, Hooks.Blog.Model.Author.OnLoad) { }
 
 		/// <summary>
 		/// Gets the entity query for the given model.
@@ -74,8 +74,8 @@ namespace Goldfish.Repositories.Default
 			var state = new Models.ModelState();
 
 			// Execute hooks
-			if (Hooks.Blog.Model.OnAuthorSave != null)
-				Hooks.Blog.Model.OnAuthorSave(source, state);
+			if (Hooks.Blog.Model.Author.OnSave != null)
+				Hooks.Blog.Model.Author.OnSave(source, state);
 
 			// Proceed if state is valid
 			if (state.IsValid) {

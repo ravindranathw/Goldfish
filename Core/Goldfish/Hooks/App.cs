@@ -99,17 +99,23 @@ namespace Goldfish.Hooks
 		/// The hooks available for the models.
 		/// </summary>
 		public static class Model
-		{ 
+		{
 			/// <summary>
-			/// Called after the model has been loaded from the database but before it
-			/// has been put into the application cache.
+			/// The hooks available for the param model.
 			/// </summary>
-			public static Hooks.Delegates.ModelDelegate<Models.Param> OnParamLoad;
+			public static class Param 
+			{ 
+				/// <summary>
+				/// Called after the model has been loaded from the database but before it
+				/// has been put into the application cache.
+				/// </summary>
+				public static Hooks.Delegates.ModelDelegate<Models.Param> OnLoad;
 
-			/// <summary>
-			/// Called before the model is saved to the database.
-			/// </summary>
-			public static Hooks.Delegates.ModelSaveDelegate<Models.Param> OnParamSave;
+				/// <summary>
+				/// Called before the model is saved to the database.
+				/// </summary>
+				public static Hooks.Delegates.ModelSaveDelegate<Models.Param> OnSave;
+			}
 		}
 
 		/// <summary>

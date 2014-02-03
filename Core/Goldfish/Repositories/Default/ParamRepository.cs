@@ -23,7 +23,7 @@ namespace Goldfish.Repositories.Default
 		/// </summary>
 		/// <param name="db">The current db context</param>
 		public ParamRepository(Db db)
-			: base(db, App.Instance.ModelCache.Params, Hooks.App.Model.OnParamLoad) { }
+			: base(db, App.Instance.ModelCache.Params, Hooks.App.Model.Param.OnLoad) { }
 
 		/// <summary>
 		/// Gets the entity query for the given key.
@@ -84,8 +84,8 @@ namespace Goldfish.Repositories.Default
 			var state = new Models.ModelState();
 
 			// Execute hooks
-			if (Hooks.App.Model.OnParamSave != null)
-				Hooks.App.Model.OnParamSave(source, state);
+			if (Hooks.App.Model.Param.OnSave != null)
+				Hooks.App.Model.Param.OnSave(source, state);
 
 			// Proceed if state is valid
 			if (state.IsValid) {

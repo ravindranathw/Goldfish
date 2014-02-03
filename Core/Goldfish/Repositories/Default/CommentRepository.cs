@@ -24,7 +24,7 @@ namespace Goldfish.Repositories.Default
 		/// </summary>
 		/// <param name="db">The current context.</param>
 		public CommentRepository(Db db)
-			: base(db, null, Hooks.Blog.Model.OnCommentLoad) { }
+			: base(db, null, Hooks.Blog.Model.Comment.OnLoad) { }
 
 		/// <summary>
 		/// Gets the comments available for the post with the given id.
@@ -109,8 +109,8 @@ namespace Goldfish.Repositories.Default
 			source.Body = source.Body.StripHtml();
 
 			// Execute hooks
-			if (Hooks.Blog.Model.OnCommentSave != null)
-				Hooks.Blog.Model.OnCommentSave(source, state);
+			if (Hooks.Blog.Model.Comment.OnSave != null)
+				Hooks.Blog.Model.Comment.OnSave(source, state);
 
 			// Proceed if state is valid
 			if (state.IsValid) {

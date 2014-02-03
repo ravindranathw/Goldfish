@@ -25,7 +25,7 @@ namespace Goldfish.Repositories.Default
 		/// </summary>
 		/// <param name="db">The current context</param>
 		public CategoryRepository(Db db)
-			: base(db, App.Instance.ModelCache.Categories, Hooks.Blog.Model.OnCategoryLoad) { }
+			: base(db, App.Instance.ModelCache.Categories, Hooks.Blog.Model.Category.OnLoad) { }
 
 		/// <summary>
 		/// Gets the entity query for the given key.
@@ -89,8 +89,8 @@ namespace Goldfish.Repositories.Default
 			else source.Slug = Utils.GenerateSlug(source.Slug);
 
 			// Execute hooks
-			if (Hooks.Blog.Model.OnCategorySave!= null)
-				Hooks.Blog.Model.OnCategorySave(source, state);
+			if (Hooks.Blog.Model.Category.OnSave!= null)
+				Hooks.Blog.Model.Category.OnSave(source, state);
 
 			// Proceed if state is valid
 			if (state.IsValid) {

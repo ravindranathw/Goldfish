@@ -26,7 +26,7 @@ namespace Goldfish.Repositories.Default
 		/// </summary>
 		/// <param name="db">The current context</param>
 		public PostRepository(Db db) 
-			: base(db, App.Instance.ModelCache.Posts, Hooks.Blog.Model.OnPostLoad) { }
+			: base(db, App.Instance.ModelCache.Posts, Hooks.Blog.Model.Post.OnLoad) { }
 
 		/// <summary>
 		/// Gets the posts matching the given predicate.
@@ -160,8 +160,8 @@ namespace Goldfish.Repositories.Default
 			else source.Slug = Utils.GenerateSlug(source.Slug);
 
 			// Execute hooks
-			if (Hooks.Blog.Model.OnPostSave != null)
-				Hooks.Blog.Model.OnPostSave(source, state);
+			if (Hooks.Blog.Model.Post.OnSave != null)
+				Hooks.Blog.Model.Post.OnSave(source, state);
 
 			// Proceed if state is valid
 			if (state.IsValid) {

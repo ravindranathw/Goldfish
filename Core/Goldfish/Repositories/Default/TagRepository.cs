@@ -25,7 +25,7 @@ namespace Goldfish.Repositories.Default
 		/// </summary>
 		/// <param name="db">The current context</param>
 		public TagRepository(Db db)
-			: base(db, App.Instance.ModelCache.Tags, Hooks.Blog.Model.OnTagLoad) { }
+			: base(db, App.Instance.ModelCache.Tags, Hooks.Blog.Model.Tag.OnLoad) { }
 
 		/// <summary>
 		/// Gets the entity query for the given key.
@@ -89,8 +89,8 @@ namespace Goldfish.Repositories.Default
 			else source.Slug = Utils.GenerateSlug(source.Slug);
 
 			// Execute hooks
-			if (Hooks.Blog.Model.OnTagSave != null)
-				Hooks.Blog.Model.OnTagSave(source, state);
+			if (Hooks.Blog.Model.Tag.OnSave != null)
+				Hooks.Blog.Model.Tag.OnSave(source, state);
 
 			// Proceed if state is valid
 			if (state.IsValid) {
