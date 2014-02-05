@@ -14,7 +14,7 @@ namespace Goldfish.Cache
 	/// Model cache.
 	/// </summary>
 	/// <typeparam name="T">The model cache</typeparam>
-	internal class ModelCache<T>
+	public sealed class ModelCache<T>
 	{
 		#region Members
 		/// <summary>
@@ -38,6 +38,12 @@ namespace Goldfish.Cache
 		private readonly Func<T, string> GetKey;
 		#endregion
 
+		/// <summary>
+		/// Default constructor.
+		/// </summary>
+		/// <param name="cache">The current cache provider</param>
+		/// <param name="getId">Function for get the model id</param>
+		/// <param name="getKey">Function for getting the model key</param>
 		public ModelCache(ICacheProvider cache, Func<T, Guid> getId, Func<T, string> getKey) {
 			provider = cache;
 			GetId = getId;

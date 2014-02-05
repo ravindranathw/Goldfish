@@ -48,7 +48,7 @@ namespace Goldfish
 		public TinyIoCContainer IoCContainer { get; private set; }
 
 		/// <summary>
-		/// Gets the entity cache.
+		/// Gets the model cache.
 		/// </summary>
 		internal Cache.AppCache ModelCache { get; private set; }
 
@@ -63,7 +63,6 @@ namespace Goldfish
 		/// Default private constructor.
 		/// </summary>
 		private App() { 
-			Initialize();
 		}
 
 		/// <summary>

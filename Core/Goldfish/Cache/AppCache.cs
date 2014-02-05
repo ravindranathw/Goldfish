@@ -43,7 +43,7 @@ namespace Goldfish.Cache
 		/// <summary>
 		/// Default constructor.
 		/// </summary>
-		/// <param name="container">The IoC container</param>
+		/// <param name="container">The current cache provider</param>
 		public AppCache(ICacheProvider provider) {
 			Authors = new ModelCache<Models.Author>(provider, a => a.Id.Value, a => a.Email);
 			Categories = new ModelCache<Models.Category>(provider, c => c.Id.Value, c => c.Slug);
