@@ -7,7 +7,7 @@
 using System;
 using System.Data.Entity.ModelConfiguration;
 
-namespace Goldfish.Blocks.Entities.Maps
+namespace Goldfish.Blocks.Maps
 {
 	/// <summary>
 	/// Entity type configuration for blocks.

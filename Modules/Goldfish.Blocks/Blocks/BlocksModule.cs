@@ -21,7 +21,7 @@ namespace Goldfish.Blocks
 		/// </summary>
 		public override void Init() {
 			// Add cache for the blocks
-			AddCache<Entities.Block>(b => b.Id, b => b.InternalId);
+			AddCache<Block>(b => b.Id, b => b.InternalId);
 		}
 	}
 }

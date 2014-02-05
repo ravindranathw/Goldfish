@@ -20,7 +20,7 @@ namespace Goldfish.Helpers
 		/// <param name="internalId">The internal id</param>
 		/// <returns>The block content as html</returns>
 		public static IHtmlString Get(string internalId) {
-			using (var rep = new Goldfish.Blocks.BlockRepository()) {
+			using (var rep = new Goldfish.Blocks.Api()) {
 				var block = rep.GetByInternalId(internalId);
 
 				if (block != null) {

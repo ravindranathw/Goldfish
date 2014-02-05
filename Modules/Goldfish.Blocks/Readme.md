@@ -6,17 +6,14 @@ The **Blocks** module add support for adding reusable blocks of markdown content
 
 Blocks are easily added through the blocks repository.
 
-	using Goldfish.Blocks;
-	using Goldfish.Blocks.Entities;
-	
-	using (var repo = new BlocksRepository()) {
-		var block = new Block() {
+	using (var api = new Goldfish.Blocks.Api()) {
+		var block = new Goldfish.Blocks.Block() {
 		  InternalId = "start",
 		  Name = "Start",
 		  Body = "This is my startpage content"
 		}
-		repo.Add(block);
-		repo.SaveChanges();
+		api.Add(block);
+		api.SaveChanges();
 	}
 
 ## Using a block

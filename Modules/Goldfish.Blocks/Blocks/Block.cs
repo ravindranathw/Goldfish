@@ -6,7 +6,7 @@
 
 using System;
 
-namespace Goldfish.Blocks.Entities
+namespace Goldfish.Blocks
 {
 	/// <summary>
 	/// A block can be used to store a piece of content to be

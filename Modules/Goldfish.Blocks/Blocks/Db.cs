@@ -18,7 +18,7 @@ namespace Goldfish.Blocks
 		/// <summary>
 		/// Gets/sets the available blocks.
 		/// </summary>
-		public DbSet<Entities.Block> Blocks { get; set; }
+		public DbSet<Block> Blocks { get; set; }
 		#endregion
 
 		/// <summary>
@@ -31,7 +31,7 @@ namespace Goldfish.Blocks
 		/// </summary>
 		/// <param name="modelBuilder">The model builder</param>
 		protected override void OnModelCreating(DbModelBuilder modelBuilder) {
-			modelBuilder.Configurations.Add(new Entities.Maps.BlockMap());
+			modelBuilder.Configurations.Add(new Maps.BlockMap());
 
 			base.OnModelCreating(modelBuilder);
 		}

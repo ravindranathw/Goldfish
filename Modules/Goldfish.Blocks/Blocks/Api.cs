@@ -20,7 +20,7 @@ namespace Goldfish.Blocks
 	/// <summary>
 	/// The blocks repository.
 	/// </summary>
-	public class BlockRepository : IDisposable
+	public class Api : IDisposable
 	{
 		#region Members
 		private Db db;
@@ -29,7 +29,7 @@ namespace Goldfish.Blocks
 		/// <summary>
 		/// Default constructor.
 		/// </summary>
-		public BlockRepository() {
+		public Api() {
 			db = new Db();
 		}
 
@@ -38,13 +38,13 @@ namespace Goldfish.Blocks
 		/// </summary>
 		/// <param name="internalId">The internal id.</param>
 		/// <returns>The block</returns>
-		public Entities.Block GetByInternalId(string internalId) {
-			var block = BlocksModule.Cache<Entities.Block>().Get(internalId);
+		public Block GetByInternalId(string internalId) {
+			var block = BlocksModule.Cache<Block>().Get(internalId);
 
 			if (block == null) {
 				block = db.Blocks.Where(b => b.InternalId == internalId).SingleOrDefault();
 				if (block != null)
-					BlocksModule.Cache<Entities.Block>().Add(block);
+					BlocksModule.Cache<Block>().Add(block);
 			}
 			return block;
 		}
@@ -53,11 +53,11 @@ namespace Goldfish.Blocks
 		/// Adds a new or existing block.
 		/// </summary>
 		/// <param name="block">The block</param>
-		public void Add(Entities.Block block) {
+		public void Add(Block block) {
 			var entity = db.Blocks.Where(b => b.Id == block.Id).SingleOrDefault();
 
 			if (entity == null) {
-				entity = new Entities.Block() {
+				entity = new Block() {
 					Id = Guid.NewGuid()
 				};
 				db.Blocks.Add(entity);
@@ -67,7 +67,7 @@ namespace Goldfish.Blocks
 			entity.Body = block.Body;
 
 			// Remove the current block from the cache.
-			BlocksModule.Cache<Entities.Block>().Remove(entity.Id);
+			BlocksModule.Cache<Block>().Remove(entity.Id);
 		}
 
 		/// <summary>
@@ -79,7 +79,7 @@ namespace Goldfish.Blocks
 			db.Blocks.Remove(entity);
 
 			// Removes the block from the cache
-			BlocksModule.Cache<Entities.Block>().Remove(entity.Id);
+			BlocksModule.Cache<Block>().Remove(entity.Id);
 		}
 
 		/// <summary>

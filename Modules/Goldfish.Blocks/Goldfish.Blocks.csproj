@@ -111,10 +111,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Blocks\Db.cs" />
-    <Compile Include="Blocks\BlockRepository.cs" />
+    <Compile Include="Blocks\Api.cs" />
     <Compile Include="Blocks\BlocksModule.cs" />
-    <Compile Include="Blocks\Entities\Block.cs" />
-    <Compile Include="Blocks\Entities\Maps\BlockMap.cs" />
+    <Compile Include="Blocks\Block.cs" />
+    <Compile Include="Blocks\Maps\BlockMap.cs" />
     <Compile Include="Helpers\Blocks.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
