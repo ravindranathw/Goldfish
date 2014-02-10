@@ -7,12 +7,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-/*
- * Copyright (c) 2014 Håkan Edling
- *
- * See the file LICENSE for copying permission.
- */
-
 using System.Web;
 
 namespace Goldfish.Blocks
