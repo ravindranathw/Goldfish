@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using System.Web;
+using MarkdownSharp;
 
 namespace Goldfish
 {
@@ -125,6 +126,16 @@ namespace Goldfish
 
 				api.SaveChanges();				
 			}
+		}
+
+		/// <summary>
+		/// Transforms the given markdown string to html.
+		/// </summary>
+		/// <param name="str">The markdown string</param>
+		/// <returns></returns>
+		public static string TransformMarkdown(string str) {
+			var converter = new Markdown();
+			return converter.Transform(str);
 		}
 		#endregion
 

@@ -37,7 +37,7 @@ namespace Goldfish.Entities
 		/// Called when the entity has been loaded.
 		/// </summary>
 		/// <param name="db">The db context</param>
-		public virtual void OnLoad(Db db) {
+		public virtual void OnLoad(DbContext db) {
 			Created = DateTime.SpecifyKind(Created, DateTimeKind.Utc).ToLocalTime();
 			Updated = DateTime.SpecifyKind(Updated, DateTimeKind.Utc).ToLocalTime();
 		}
@@ -47,7 +47,7 @@ namespace Goldfish.Entities
 		/// </summary>
 		/// <param name="db">The db context</param>
 		/// <param name="state">The current entity state</param>
-		public virtual void OnSave(Db db, EntityState state) {
+		public virtual void OnSave(DbContext db, EntityState state) {
 			// Auto generate id.
 			if (Id == Guid.Empty)
 				Id = Guid.NewGuid();
@@ -63,7 +63,7 @@ namespace Goldfish.Entities
 		/// Called when the entity is about to get deleted.
 		/// </summary>
 		/// <param name="db">The db context</param>
-		public virtual void OnDelete(Db db) { }
+		public virtual void OnDelete(DbContext db) { }
 		#endregion
 	}
 }
