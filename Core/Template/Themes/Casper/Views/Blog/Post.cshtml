@@ -10,7 +10,7 @@
 		</header>
 
 		<span class="post-meta">
-			<time datetime="@Model.GetPublished()">@Model.GetPublished()</time>
+			<time datetime="@Model.Published.Format()">@Model.Published.Format()</time>
 			@if (Model.HasCategories()) {
 				<text>on</text> @Model.GetCategories()
 			}

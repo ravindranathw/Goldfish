@@ -180,17 +180,6 @@ namespace Goldfish.Helpers
 		public static string GetAbsoluteUrl(this Models.Post post) {
 			return Utils.AbsoluteUrl("~/" + FormatPermalink(post));
 		}
-
-		/// <summary>
-		/// Gets the formatted published date.
-		/// </summary>
-		/// <param name="post">The current post</param>
-		/// <returns>The published date</returns>
-		public static string GetPublished(this Models.Post post) {
-			if (Hooks.Blog.UI.GetPostPublished != null)
-				return Hooks.Blog.UI.GetPostPublished(post);
-			return post.Published.Value.ToString("yy MMM dd");
-		}
 		#endregion
 
 		#region Private methods

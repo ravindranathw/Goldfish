@@ -122,7 +122,12 @@ namespace Goldfish.Hooks
 		/// The hooks available for UI rendering.
 		/// </summary>
 		public static class UI 
-		{ 
+		{
+			/// <summary>
+			/// Called when a date is formatted for rendering in a view.
+			/// </summary>
+			public static Hooks.Delegates.OutputReturnDelegate<DateTime> FormatDate;
+
 			/// <summary>
 			/// Called when the core has finished rendering the basic meta tags. The output of
 			/// this method is appended to the default meta data.

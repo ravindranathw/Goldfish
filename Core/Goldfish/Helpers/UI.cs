@@ -89,5 +89,29 @@ namespace Goldfish.Helpers
 			return "http://www.gravatar.com/avatar/" + sb.ToString().ToLower() +
 				(size > 0 ? "?s=" + size : "");
 		}
+
+		#region Extensions
+		/// <summary>
+		/// Gets the formatted date.
+		/// </summary>
+		/// <param name="post">The date</param>
+		/// <returns>The formatted date</returns>
+		public static string Format(this DateTime? date) {
+			if (date.HasValue)
+				return Format(date.Value);
+			return "";
+		}
+
+		/// <summary>
+		/// Gets the formatted date.
+		/// </summary>
+		/// <param name="post">The date</param>
+		/// <returns>The formatted date</returns>
+		public static string Format(this DateTime date) {
+			if (Hooks.App.UI.FormatDate != null)
+				return Hooks.App.UI.FormatDate(date);
+			return date.ToString("yy MMM dd");
+		}
+		#endregion
 	}
 }
