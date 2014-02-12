@@ -4,7 +4,7 @@ The **Blocks** module add support for adding reusable blocks of markdown content
 
 ## Adding a block
 
-Blocks are easily added through the blocks repository.
+Blocks are easily added through the blocks Api.
 
 	using (var api = new Goldfish.Blocks.Api()) {
 		var block = new Goldfish.Blocks.Block() {

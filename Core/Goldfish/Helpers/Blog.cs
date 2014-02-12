@@ -82,7 +82,7 @@ namespace Goldfish.Helpers
 				Hooks.Blog.UI.GetArchiveMeta(str);
 		}
 
-		#region Post Extensions
+		#region Post extensions
 		/// <summary>
 		/// Gets if the post has any categories attached to it.
 		/// </summary>
