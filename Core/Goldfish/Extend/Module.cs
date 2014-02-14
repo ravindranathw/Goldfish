@@ -21,6 +21,17 @@ namespace Goldfish.Extend
 		private static Dictionary<Type, object> cache = new Dictionary<Type, object>();
 		#endregion
 
+		#region Properties
+		/// <summary>
+		/// Gets the current cache provider.
+		/// </summary>
+		public static Cache.ICacheProvider Cache {
+			get {
+				return App.Instance.IoCContainer.Resolve<Goldfish.Cache.ICacheProvider>();
+			}
+		}
+		#endregion
+
 		/// <summary>
 		/// Initializes the module. This method should be used for
 		/// ensuring runtime resources and registering hooks.
@@ -43,7 +54,7 @@ namespace Goldfish.Extend
 		/// </summary>
 		/// <typeparam name="T">The cache model type</typeparam>
 		/// <returns>The cache</returns>
-		public static Cache.ModelCache<T> Cache<T>() {
+		public static Cache.ModelCache<T> GetCache<T>() {
 			return (Cache.ModelCache<T>)cache[typeof(T)];
 		}
 	}

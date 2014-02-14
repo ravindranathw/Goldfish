@@ -33,12 +33,12 @@ namespace Goldfish.Blocks
 		/// <param name="internalId">The internal id.</param>
 		/// <returns>The block</returns>
 		public Block GetByInternalId(string internalId) {
-			var block = BlocksModule.Cache<Block>().Get(internalId);
+			var block = BlocksModule.GetCache<Block>().Get(internalId);
 
 			if (block == null) {
 				block = db.Blocks.Where(b => b.InternalId == internalId).SingleOrDefault();
 				if (block != null)
-					BlocksModule.Cache<Block>().Add(block);
+					BlocksModule.GetCache<Block>().Add(block);
 			}
 			return block;
 		}
@@ -61,7 +61,7 @@ namespace Goldfish.Blocks
 			entity.Body = block.Body;
 
 			// Remove the current block from the cache.
-			BlocksModule.Cache<Block>().Remove(entity.Id);
+			BlocksModule.GetCache<Block>().Remove(entity.Id);
 		}
 
 		/// <summary>
@@ -73,7 +73,7 @@ namespace Goldfish.Blocks
 			db.Blocks.Remove(entity);
 
 			// Removes the block from the cache
-			BlocksModule.Cache<Block>().Remove(entity.Id);
+			BlocksModule.GetCache<Block>().Remove(entity.Id);
 		}
 
 		/// <summary>
