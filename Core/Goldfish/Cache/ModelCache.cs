@@ -58,11 +58,11 @@ namespace Goldfish.Cache
 			lock (mutex) {
 				var id = GetId(model);
 				var key = GetKey(model);
-				var keymap = provider.GetKeyMap(this.GetType().FullName);
+				var keymap = GetKeyMap(this.GetType().FullName);
 
 				keymap[key] = id;
 				provider.Set(id.ToString(), model);
-				provider.SetKeyMap(this.GetType().FullName, keymap);
+				provider.Set(this.GetType().FullName, keymap);
 			}
 		}
 
@@ -85,7 +85,7 @@ namespace Goldfish.Cache
 		/// <returns>The model, null if it wasn't found</returns>
 		public T Get(string key) {
 			try {
-				var keymap = provider.GetKeyMap(this.GetType().FullName);
+				var keymap = GetKeyMap(this.GetType().FullName);
 				return provider.Get<T>(keymap[key].ToString());
 			} catch { }
 			return default(T);
@@ -99,16 +99,34 @@ namespace Goldfish.Cache
 			lock (mutex) {
 				var model = provider.Get<T>(id.ToString());
 				if (model != null) {
-					var keymap = provider.GetKeyMap(this.GetType().FullName);
+					var keymap = GetKeyMap(this.GetType().FullName);
 					var key = GetKey(model);
 
 					if (keymap.ContainsKey(key)) {
 						keymap.Remove(key);
-						provider.SetKeyMap(this.GetType().FullName, keymap);
+						provider.Set(this.GetType().FullName, keymap);
 					}
 					provider.Remove(id.ToString());
 				}
 			}
 		}
+
+		#region Private methods
+		/// <summary>
+		/// Gets or creates the keymap for the given id.
+		/// </summary>
+		/// <param name="id">The unique id</param>
+		/// <returns>The keymap</returns>
+		private Dictionary<string, Guid> GetKeyMap(string id) {
+			var map = provider.Get<Dictionary<string, Guid>>(id);
+
+			// Create a new map if it doesn't exist
+			if (map == null) {
+				map = new Dictionary<string, Guid>();
+				provider.Set(id, map);
+			}
+			return map;
+		}
+		#endregion
 	}
 }

@@ -22,31 +22,6 @@ namespace Goldfish.Cache
 		#endregion
 
 		/// <summary>
-		/// Gets or creates the keymap for the given id.
-		/// </summary>
-		/// <param name="id">The unique id</param>
-		/// <returns>The keymap</returns>
-		public Dictionary<string, Guid> GetKeyMap(string id) {
-			object map = null;
-
-			// Create a new map if it doesn't exist
-			if (!Cache.TryGetValue(id, out map)) {
-				map = new Dictionary<string, Guid>();
-				Cache[id] = map;
-			}
-			return (Dictionary<string, Guid>)map;
-		}
-
-		/// <summary>
-		/// Sets the keymap for the given id.
-		/// </summary>
-		/// <param name="id">The unique id</param>
-		/// <param name="keyMap">The key map</param>
-		public void SetKeyMap(string id, Dictionary<string, Guid> keyMap) {
-			Cache[id] = keyMap;
-		}
-
-		/// <summary>
 		/// Gets the cached model for the given id.
 		/// </summary>
 		/// <typeparam name="T">The model type</typeparam>
