@@ -26,7 +26,7 @@ namespace Goldfish.Cache
 		/// <returns>If the correct version is cached</returns>
 		public static bool IsCached(this HttpContextBase context, string key, DateTime modified) {
 #if !DEBUG
-			if (Config.Cache.IsEnabled) {
+			if (Config.App.Cache.IsEnabled) {
 				var etag = GenerateEtag(key, modified);
 
 				if (HasCache(context.Request, etag, modified)) {
