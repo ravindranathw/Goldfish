@@ -34,7 +34,7 @@ namespace Goldfish.Feed.Controllers
 		/// <returns>The view result</returns>
 		[Route("rss")]
 		public async Task<ActionResult> Rss() {
-			return new RssResult((await Api.Posts.GetAsync()));
+			return new RssResult((await Api.Posts.GetAsync(p => p.Published.HasValue)));
 		}
 
 		/// <summary>
@@ -43,7 +43,7 @@ namespace Goldfish.Feed.Controllers
 		/// <returns>The view result</returns>
 		[Route("atom")]
 		public async Task<ActionResult> Atom() {
-			return new AtomResult((await Api.Posts.GetAsync()));
+			return new AtomResult((await Api.Posts.GetAsync(p => p.Published.HasValue)));
 		}
 
 		/// <summary>
