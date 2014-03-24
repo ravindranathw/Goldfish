@@ -3,12 +3,12 @@
 Goldfish is a **lightweight**, **modular** and **high performance** blogging platform for ASP.NET MVC. The source code has been designed ground-up to be easy, robust and to follow best pratices and patterns. It is built using the following packages:
 
 * ASP.NET MVC 5.1.1
-* ASP.NET Identity 1.0
-* Entity Framework 6.0.2
+* ASP.NET Identity 2.0
+* Entity Framework 6.1.0
 * Microsoft Extensibility Framework
-* WebActivatorEx 2.0.4
+* WebActivatorEx 2.0.5
 * MarkdownSharp 1.13
-* RazorGenerator.Mvc 2.2.1
+* RazorGenerator.Mvc 2.2.2
 * AutoMapper 3.1.1
 * TinyIoC 1.2
 
