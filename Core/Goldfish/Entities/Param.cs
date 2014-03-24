@@ -5,6 +5,7 @@
  */
 
 using System;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Goldfish.Entities
 {
@@ -18,6 +19,7 @@ namespace Goldfish.Entities
 		/// <summary>
 		/// Gets/sets the unique internal id.
 		/// </summary>
+		[Index("IX_ParamInternalId", IsUnique=true)]
 		public string InternalId { get; set; }
 
 		/// <summary>

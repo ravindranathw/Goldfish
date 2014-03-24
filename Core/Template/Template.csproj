@@ -50,19 +50,19 @@
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\EntityFramework.6.0.2\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\EntityFramework.6.0.2\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.AspNet.Identity.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\Microsoft.AspNet.Identity.Core.1.0.0\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+      <HintPath>..\..\packages\Microsoft.AspNet.Identity.Core.2.0.0\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\Microsoft.AspNet.Identity.EntityFramework.1.0.0\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+      <HintPath>..\..\packages\Microsoft.AspNet.Identity.EntityFramework.2.0.0\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -136,13 +136,15 @@
     <Content Include="Themes\Casper\Views\_ViewStart.cshtml" />
     <Content Include="Themes\Casper\Views\Blog\Start.cshtml" />
     <Content Include="Themes\Casper\Views\Blog\Post.cshtml" />
-    <Content Include="Themes\Casper\Views\Blog\NotFound.cshtml" />
+    <Content Include="Themes\Casper\Views\NotFound.cshtml" />
     <Content Include="Themes\Casper\Views\Blog\Archive.cshtml" />
     <Content Include="Themes\Casper\Views\Blog\Category.cshtml" />
     <Content Include="Themes\Casper\Views\Blog\Tag.cshtml" />
     <Content Include="Themes\Casper\Views\Blog\Partial\PostAbstract.cshtml" />
     <Content Include="Themes\Casper\Views\Blog\Partial\Comments.cshtml" />
     <Content Include="Views\web.config" />
+    <Content Include="Themes\Casper\Views\Blog\NotFound.cshtml" />
+    <Content Include="Themes\Casper\Views\Pages\Default.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -162,6 +164,10 @@
     <ProjectReference Include="..\..\Modules\Goldfish.FilePoster\Goldfish.FilePoster.csproj">
       <Project>{cc2547cc-e0c6-4d3c-b747-b0349beb2e87}</Project>
       <Name>Goldfish.FilePoster</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\Goldfish.Pages\Goldfish.Pages.csproj">
+      <Project>{d648cacf-bdbb-47b2-982f-02c0ee083d2c}</Project>
+      <Name>Goldfish.Pages</Name>
     </ProjectReference>
     <ProjectReference Include="..\Goldfish\Goldfish.csproj">
       <Project>{0759226a-dd1b-451c-9d94-33af626f4279}</Project>

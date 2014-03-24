@@ -5,6 +5,7 @@
  */
 
 using System;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Goldfish.Entities
 {
@@ -22,6 +23,7 @@ namespace Goldfish.Entities
 		/// <summary>
 		/// Gets/sets the unique slug.
 		/// </summary>
+		[Index("IX_TagSlug", IsUnique=true)]
 		public string Slug { get; set; }
 		#endregion
 

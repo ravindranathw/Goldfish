@@ -14,9 +14,5 @@ namespace Goldfish.Entities
 	/// </summary>
 	public sealed class User : IdentityUser
 	{
-		/// <summary>
-		/// Gets/sets the email.
-		/// </summary>
-		public string Email { get; set; }
 	}
 }

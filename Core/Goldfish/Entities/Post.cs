@@ -6,6 +6,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Goldfish.Entities
 {
@@ -38,6 +39,7 @@ namespace Goldfish.Entities
 		/// <summary>
 		/// Gets/sets the unique slug.
 		/// </summary>
+		[Index("IX_PostSlug", IsUnique=true)]
 		public string Slug { get; set; }
 
 		/// <summary>

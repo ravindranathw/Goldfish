@@ -1,0 +1,44 @@
+﻿@model Goldfish.Pages.Page
+@{
+	Page.Title = Model.Title;		   
+}
+
+<main class="content" role="main">
+	<nav>
+		@Html.Partial("Partial/Menu", Pages.Navigation)
+	</nav>
+
+	<article class="post">
+		<header class="post-header">
+			<a id="blog-logo" href="~/">@Blog.Title</a>
+		</header>
+
+		<span class="post-meta">
+			<time datetime="@Model.Published.Format()">@Model.Published.Format()</time>
+		</span>
+
+		<h1 class="post-title">@Model.Title</h1>
+
+		<section class="post-content">
+			@Model.Html
+		</section>
+
+		<footer class="post-footer">
+			<section class="share">
+				<h4>Share this page</h4>
+				<a class="icon-twitter" href="http://twitter.com/share?text=@Model.Title&url=@Model.GetAbsoluteUrl()"
+				   onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+					<span class="hidden">Twitter</span>
+				</a>
+				<a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=@Model.GetAbsoluteUrl()"
+				   onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+					<span class="hidden">Facebook</span>
+				</a>
+				<a class="icon-google-plus" href="https://plus.google.com/share?url=@Model.GetAbsoluteUrl()"
+				   onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+					<span class="hidden">Google+</span>
+				</a>
+			</section>
+		</footer>
+	</article>
+</main>
