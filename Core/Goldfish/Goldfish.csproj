@@ -155,7 +155,6 @@
     <Compile Include="Cache\ModelCache.cs" />
     <Compile Include="Cache\HttpCache.cs" />
     <Compile Include="Db.cs" />
-    <Compile Include="DbConfig.cs" />
     <Compile Include="DbFactory.cs" />
     <Compile Include="Entities\Comment.cs" />
     <Compile Include="Entities\Maps\CommentMap.cs" />
