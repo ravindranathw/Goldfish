@@ -46,6 +46,13 @@ namespace Goldfish.Hooks
 			/// </summary>
 			/// <param name="assemblies"></param>
 			public delegate void PrecompiledViewEngingeRegistration(IList<Assembly> assemblies);
+
+			/// <summary>
+			/// Delegate for changing the default login behaviour.
+			/// </summary>
+			/// <param name="user">The authenticated user.</param>
+			/// <returns>If the user could be logged in</returns>
+			public delegate bool LoginDelegate(Entities.User user);
 		}
 
 		/// <summary>
